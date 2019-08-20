@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*  
+        作用域 起作用的区域
+
+        JS中起作用的区域：全局作用域  私有作用域
+        JS作用域知道就是一块栈内存；
+
+        栈内存  存储值类型，提供代码的运行环境
+        堆内存  存储引用数据类型
+
+        全局作用域  页面一打开就会形成一个一个全局作用域，一个页面只有一个全局作用域
+        私有作用域  函数执行的时候会形成一个私有作用域
+
+        全局变量：在全局声明的变量叫做全局变量
+        私有变量：在私有作用域声明的变量叫私有变量
+
+    */
+
+    var a = 12 // 全局变量
+    var f = function(){
+        var s = 100
+    }
+</script>
