@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //1、
+    var str = "我是MT";
+    test();
+
+    function test() {
+        console.log(str); //undetfined
+        var str = "哈哈哈";
+        console.log(str); //哈哈哈
+    }
+    console.log(str); //我是MT
+
+    //2、
+    console.log(a); //undefined
+    a = 12;
+
+    function fn(a) {
+        console.log(a); //undefined
+        a = 13
+    }
+    fn();
+    var a;
+    console.log(a);
+    12
+
+    //3、
+    function test() {
+        if ("a" in window) {
+            var a = 10;
+        }
+        console.log(a); //undefined
+    }
+    test();
+
+    //4、
+    var a = 1;
+
+    function fn() {
+        console.log(a); //undefined
+        var a = 5;
+        console.log(a); //5
+        a++;
+        var a;
+        fn3(); //1
+        fn2(); //6
+        console.log(a); //20
+        function fn2() {
+            console.log(a);
+            a = 20;
+        }
+    }
+
+    function fn3() {
+        console.log(a);
+        a = 200;
+    };
+    fn();
+    console.log(a); //200
+
+
+    //5、
+    var n = 10;
+
+    function outer() {
+        var n = 15;
+
+        function inner(n) {
+            console.log(n) //15
+            function center() {
+                n++;
+                console.log(n); //16
+            }
+            center();
+        }
+        inner(n);
+    }
+    outer();
+
+    //6、
+    var n = 10;
+
+    function outer() {
+        n = 15;
+
+        function inner() {
+            console.log(n++); //15
+            function center() {
+                n += 2;
+                console.log(n); //18
+            }
+            center();
+        }
+        inner();
+    };
+    outer();
+    console.log(n) //18
+
+
+
+    //----------------------------------------------------
+    alert(a); //undefined
+    console.log("a" in window); //true
+    if (!("a" in window)) {
+        var a = 10;
+    }
+    alert(a); //undefined
+
+    console.log(fn); //undefined
+    if (9 == 8) {
+        function fn() {
+            alert(2);
+        }
+    }
+    //    ---------------------------------
+    f = function () {
+        return true
+    };
+    g = function () {
+        return false
+    };
+    (function () {
+        console.log(g); //undefined
+        //以下报错
+        if (g() && [] == ![]) {
+            f = function f() {
+                return false
+            };
+
+            function g() {
+                return true
+            };
+        }
+    })();
+    alert(f());
+    alert(g())
+</script>
