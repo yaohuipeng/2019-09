@@ -14,5 +14,14 @@
 
 </html>
 <script>
-
+var name = '珠峰';
+var age = 9;
+age = (function (name,age) {
+    name = '珠峰';
+    age = age || this.age;
+    this.age = arguments[0];
+    console.log(name,age)
+    return this.age;
+})(name,age);
+console.log(name,age);
 </script>
