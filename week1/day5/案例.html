@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="btnBox">
+        <input type="button" value="button_1" />
+        <input type="button" value="button_2" />
+        <input type="button" value="button_3" />
+        <input type="button" value="button_4" />
+        <input type="button" value="button_5" />
+    </div>
+</body>
+
+</html>
+<script type="text/javascript">
+    var btnBox = document.getElementById('btnBox'),
+        inputs = btnBox.getElementsByTagName('input'); // 上下文.get...
+    var l = inputs.length;
+    // 事件的循环绑定的问题
+    // for(let i=0;i<l;i++){
+    //     inputs[i].onclick=function(){
+    //         alert(i);
+    //     }
+    // }
+
+    for (var i = 0; i < inputs.length; i++) {
+        (function (a) {
+            inputs[i].onclick = function () {
+                alert(a);
+            }
+        })(i)
+    }
+
+    //把索引存储到 对应元素的自身上
+    /* 
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].I = i
+            inputs[i].onclick = function () {
+                alert(this.I);
+            }
+        }
+    */
+</script>
