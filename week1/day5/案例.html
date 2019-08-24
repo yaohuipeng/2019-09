@@ -30,12 +30,28 @@
     //     }
     // }
 
-    for (var i = 0; i < inputs.length; i++) {
+    /* for (var i = 0; i < inputs.length; i++) {
         (function (a) {
-            inputs[i].onclick = function () {
+            inputs[a].onclick = function () {
                 alert(a);
             }
         })(i)
+    }
+
+    for(var i=0 ; i<l ; i++){
+        inputs[i].onclick=(function (n){
+            return function(){
+                alert(n)
+            }
+        })(i)
+    } */
+    function fn(n) {
+        return function () {
+            alert(n)
+        }
+    }
+    for (var i = 0; i < l; i++) {
+        inputs[i].onclick = fn(i)
     }
 
     //把索引存储到 对应元素的自身上
