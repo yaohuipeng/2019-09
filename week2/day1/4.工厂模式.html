@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    var per1 = {
+        name: '小米',
+        age: 10,
+        eat: function () {
+
+        },
+        play() {
+
+        },
+        smlie() {
+            console.log(`${name}哭了`)
+        }
+    }
+    var per2 = {
+        name: '小游',
+        age: 10,
+        eat: function () {
+
+        },
+        play() {
+
+        },
+        smlie() {
+            console.log(`${name}哭了`)
+        }
+    }
+    var person = function (name,age) {
+            return {
+                name,
+                age,
+                eat: function () {
+
+                },
+                play() {
+
+                },
+                smlie() {
+                    console.log(`${name}哭了`)
+                }
+            }
+    }
+    var per3 = person('张三',20)
+    var per4 = person('历史',20)
+    console.log(per1,per2,per3,per4)
+
+    /* 
+        工厂模式 就是一个普通的函数 适合于那些批量生产单例的情况；
+     */
+</script>

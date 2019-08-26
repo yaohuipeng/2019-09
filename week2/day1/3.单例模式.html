@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    /* 
+        单例模式  其实就是一个对象，我们把这个对象称为  命名空间
+        高级单例模式 == 闭包
+        高级单例模式 能实现模块式开发
+    */
+    var name = '小明'
+    var age = 10
+    var sex = '男'
+
+    var per1 = {
+        name: '小明',
+        age: 10,
+        sex: '男',
+        eat: function () {
+            console.log(`${this.name}触犯法律`)
+        }
+    }
+    var per2 = {
+        name: '小明',
+        age: 10,
+        sex: '女',
+    }
+    per1.eat()
+    var f = per1.eat()
+    // f()
+
+    var tools = {
+        f1: function () {
+
+        },
+        f2: function () {
+
+        },
+        f3: function () {
+            console.log(666)
+        }
+        
+    }
+    tools.f3()
+
+    //高级单例模式
+
+    var utils = function(){
+        var name = '小明'
+        var age = 10
+        var sex = '男'
+        var eat = function(){
+            console.log(`${name}触犯法律`)
+        }
+        return {
+            name,age,sex,eat
+        }
+    }
+    var per3 = utils()//pet3 仍然是个普通对象
+    per1.name = '小红'
+    per1.eat = function(){
+        console.log(`上飞机`)
+    }
+    per1.eat()// 普通单例  是没有是有内容的，别人可以任意更改你的内容
+
+    per3.name = '小红'//只是修改了per3这个对象中的namt属性；utlis中的name变量没有有改变
+    var per4 = utils()// 高级单例模式，使用的这个单例的人 是改变不了内部变量的
+    console.log(per3.name,per1.name)
+    //per1的name属性  用的人能否更改？？？
+    //per3的name属性  用的人能否更改？？？
+    //都是可以更改的  但是per3中的name对应的变量是修改不了的
+    //用的人每次都会获得初始值
+
+</script>
