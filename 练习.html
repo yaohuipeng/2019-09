@@ -42,10 +42,10 @@
     console.log(f1.getX === Fn.prototype.getX);//false
     console.log(f1.constructor);//Object 类
     console.log(Fn.prototype.__proto__.constructor);//Object 类
-    f1.getX();
-    f1.__proto__.getX();
-    f2.getY();
-    Fn.prototype.getY();
-    f1.sum();
-    Fn.prototype.sum();
+    f1.getX();//100
+    f1.__proto__.getX();//undefined
+    f2.getY();//200 
+    Fn.prototype.getY();//400
+    f1.sum();//300
+    Fn.prototype.sum();//NaN
 </script>

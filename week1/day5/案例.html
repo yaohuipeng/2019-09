@@ -24,43 +24,77 @@
         inputs = btnBox.getElementsByTagName('input'); // 上下文.get...
     var l = inputs.length;
     // 事件的循环绑定的问题
+
+    // let 的方式 块级作用域起作用
     // for(let i=0;i<l;i++){
     //     inputs[i].onclick=function(){
     //         alert(i);
     //     }
     // }
 
-    /* for (var i = 0; i < inputs.length; i++) {
-        (function (a) {
-            inputs[a].onclick = function () {
-                alert(a);
-            }
-        })(i)
-    }
 
-    for(var i=0 ; i<l ; i++){
-        inputs[i].onclick=(function (n){
+    // 自定义属性的方式
+    /* for(var i = 0; i < inputs.length; i++){
+        // 使用自定义属性，思想在于 把 索引 存储到  对应元素的自身上
+        inputs[i].qqq = i; // 当i=0时，给第一个input增加一个自定义属性，对应的值 是 当前索引；
+        inputs[i].onclick=function(){
+            console.log(this);
+            alert(this.qqq);
+        }
+    } */
+
+    // 闭包的方式；
+    // for(var i = 0; i < l; i++){
+    //     (function(n){
+    //         inputs[n].onclick = function(){
+    //             alert(n);
+    //         }
+    //     })(i) 
+    // }
+
+    // 闭包方式2
+    /* for(var i=0; i< l; i++){
+        inputs[i].onclick = (function(n){
             return function(){
-                alert(n)
+                console.log(n)
             }
         })(i)
     } */
+
+    // 闭包方式3
     function fn(n) {
         return function () {
-            alert(n)
+            console.log(n)
         }
     }
     for (var i = 0; i < l; i++) {
         inputs[i].onclick = fn(i)
     }
 
-    //把索引存储到 对应元素的自身上
     /* 
-        for (var i = 0; i < inputs.length; i++) {
-            inputs[i].I = i
-            inputs[i].onclick = function () {
-                alert(this.I);
-            }
-        }
+    inputs[0].qqq = 0;
+    inputs[0].onclick=function(){
+        alert(i);
+    }
+    ...
+    inputs[4].onclick=function(){
+        alert(i);
+    }
+    
     */
+    // inputs[0].onclick=function(){
+    //     alert(0);
+    // }
+    // inputs[1].onclick=function(){
+    //     alert(1);
+    // }
+    // inputs[2].onclick=function(){
+    //     alert(2);
+    // }
+    // inputs[3].onclick=function(){
+    //     alert(3);
+    // }
+    // inputs[4].onclick=function(){
+    //     alert(4);
+    // }
 </script>
