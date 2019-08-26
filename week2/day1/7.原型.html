@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    function Person(name, age) {
+        this.name = name
+        this.age = age
+    }
+    // 吃  喝  玩  都是属于所有人类的共用属性
+    Person.prototype.eat = function () {
+        console.log('吃')
+        this.drink()
+    }
+    Person.prototype.drink = function () {
+        console.log('喝')
+        this.play()
+    }
+    Person.prototype.play = function () {
+        console.log('玩')
+    }
+    var per1 = new Person('李四', 20)
+    var per1 = new Person('张三', 20)
+    per1.eat()
+    //eat 执行的时候，函数中的this是per1
+    //eat 函数中的this.drink()就是per1.drink()
+    //this.drink()函数执行时侯，函数中的this就是per1
+    //drink函数中的  this.play() 其实就是per1.play()
+
+    function myPush(arr, ...res) {
+        for (var i = 0; i < res.length; i++) {
+            arr.push(res[i])
+        }
+    }
+    var ary = [1, 2, 3]
+    Array.prototype.myPush = function (...res) {
+        for (var i = 0; i < res.length; i++){
+            
+        }
+    }
+</script>
