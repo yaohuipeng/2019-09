@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function Person(name,age){
+        this.name = name
+        this.age = age
+    }
+    Person.prototype.eat = function (){
+        console.log(`${this.name}吃`)
+    }
+    var per1 = new Person('张三',20)
+    console.log(per1)
+    //name,age 是私有的
+    console.log(per1.hasOwnProperty('eat'))
+    //per1.hasOwnProperty('eat')查看 eat 是否是 per1 的私有属性 
+    //in 只看是否 per1 是否能调用到 能是 true   不能是 false
+    console.log('eat' in per1)
+    console.log('qqq' in per1)
+    console.log('name' in per1)
+
+    //hasPubPrototype
+    Object.prototype.hasPubPrototype =function (key){
+        //怎么获去per1？？ this
+        //
+        //判断 key 是否是 this 的共有属性
+        //1、得是this的属性
+        //2、不能是私有属性
+        if((key in this) && !this.hasOwnProperty('key')){
+            return true
+        }
+        return false
+    }
+    console.log(per1.hasPubPrototype('eat'))
+</script>

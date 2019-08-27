@@ -38,15 +38,19 @@
     //this.drink()函数执行时侯，函数中的this就是per1
     //drink函数中的  this.play() 其实就是per1.play()
 
-    function myPush(arr, ...res) {
-        for (var i = 0; i < res.length; i++) {
-            arr.push(res[i])
+    function mypush(ary,...res){
+        for(var i = 0; i < res.length; i++){
+            ary.push(res[i])
         }
     }
-    var ary = [1, 2, 3]
-    Array.prototype.myPush = function (...res) {
-        for (var i = 0; i < res.length; i++){
-            
+    var ary = [1,2,3];
+    Array.prototype.mypush = function (...res) {
+        console.log(this)
+        // 怎么获取ary
+        for(var i = 0; i < res.length; i++){
+            this.push(res[i])
         }
     }
+    ary.mypush(4,5,6)
+    console.log(ary)
 </script>
