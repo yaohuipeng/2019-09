@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    var ary = []
+    console.log(ary instanceof Array)
+    console.log(ary instanceof Number)
+    console.log(ary instanceof Object)
+    //A instanceof B 就是看从 A 能不能通过原型链 链到 B 的原型  能是 true   不能是 false
+    //A 必须是个引用数据类型 ；值类型都是false
+
+    var n = 12
+    console.log(n instanceof Number)
+
+    var m = new Number(12)
+    console.log(m instanceof Number)
+    console.log(n == m)
+    console.log(n === m)
+
+    // toLowrtCase
+    Object.prototype.myType = function () {
+        var str = Object.prototype.toString.call(this)
+        var str2 = str.slice(8, str.length - 1)
+        return str2.toLowrtCase()
+    }
+    console.log([].myType()) //Array
+
+    Object.prototype.myType = function () {
+        var str = ({}).toString.call(this)
+        var str2 = str.slice(8, str.length - 1)
+        var str3 = str2.toLowrtCase()
+        return str3
+    }
+    console.log(''.myType()) //string
+
+    function sum(...ary) {
+        console.log(ary)
+
+    }
+</script>

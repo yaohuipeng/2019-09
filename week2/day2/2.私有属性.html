@@ -30,11 +30,11 @@
 
     //hasPubPrototype
     Object.prototype.hasPubPrototype =function (key){
-        //怎么获去per1？？ this
-        //
-        //判断 key 是否是 this 的共有属性
-        //1、得是this的属性
-        //2、不能是私有属性
+        // 怎么获取per1？？？  this
+        // 属性 通过 key这个形参可以获取到
+        // 判断 key 是否是 this 的共有属性？？
+        // 1、得是this的属性
+        // 2、不能是私有属性
         if((key in this) && !this.hasOwnProperty('key')){
             return true
         }
