@@ -10,7 +10,7 @@
 
 <body>
     <button id="nameBtn">姓名排序</button>
-    <button id='ageBtu'>年龄排序</button>
+    <button id='ageBtn'>年龄排序</button>
     <ul id='box'>
         <li>姓名是：小红；年龄是 10</li>
         <li>姓名是：小红；年龄是 10</li>
@@ -52,13 +52,14 @@
     //     str += `姓名是：${ary[i].name}；年龄是 ${ary[i].age}</li>`
     // }
     // box.innerHTML = str
-
+    var oLis = document.getElementsByTagName('li');
+    var oLis2 = document.querySelectorAll('li');
     function renderHtml() {
-        var str = ''
+        var str = '';
         for (var i = 0; i < ary.length; i++) {
-            str += `姓名是：${ary[i].name}；年龄是 ${ary[i].age}</li>`
+            str += `<li>姓名是：${ary[i].name}；年龄是 ${ary[i].age}</li>`
         }
-        box.innerHTML = str
+        box.innerHTML = str;
     }
     renderHtml();
 
@@ -67,8 +68,14 @@
         flag *= -1;
         ary.sort((a, b) => {
             return (a.age - b.age)*flag
-            }
-        );
+        })
+        renderHtml();
+    }
+    nameBtn.onclick = function () {
+        flag *= -1;
+        ary.sort((a,b)=>{
+            return (a.name.localeCompare(b.name))*flag
+        })
         renderHtml();
     }
 </script>
