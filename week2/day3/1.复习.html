@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    Number.prototype.plus = function (n) {
+        return this + n
+    }
+    Number.prototype.minus = function (n) {
+        return this - n
+    }
+    let n = 10;
+    let m = n.plus(10).minus(5);
+    console.log(m); //=>15（10+10-5）
+
+
+    function C1(name) {
+        if (name) {
+            this.name = name;
+        }
+    }
+    function C2(name) {
+        this.name = name;
+    }
+    function C3(name) {
+        this.name = name || 'join';
+    }
+    C1.prototype.name = 'Tom';
+    C2.prototype.name = 'Tom';
+    C3.prototype.name = 'Tom';
+    alert((new C1().name) + (new C2().name) + (new C3().name));
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //call、apply、bind 三个都是为了改变this的指向
+    function f (){
+        console.log(this)
+        console.log(arguments)
+
+    }
+    var obj = {
+        f
+    }
+    var fn = obj.f
+    obj.f()
+    f()
+
+    //fn.call(context,1,2,3,4,56)；call是直接让函数执行了
+    //第一个参数是用来改变函数执行时内部this指向的
+    //第二个参数及之后的参数  都是传给fn函数的实参
+    fn.call(obj,1,2,1,2,12,)
+    fn.call([],2311325)
+    fn.call(123)
+    Object.prototype.toString.call('')
+
+    ({}).toString();
+    Object.prototype.toString.call('')//({}).toString() === Object.prototype.toString.call('')
+    //上述 call 执行时，把toString方法中的this改成了字符串；所以返回的 就是字符串的数据类型
+    // call这个方法 在什么地方存放？ Function.prototype
+</script>
