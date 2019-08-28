@@ -49,7 +49,7 @@
         // context.eee = this;// context.eee 跟 我们的 f2是同一个函数；
         // context.eee(...arg);
         // delete context.eee; // 为了不再原有的对象中添加属性
-        // var n = Math.random();
+        // var n = Math.random(); 
         var n = Symbol()
         context[n] = this
         context[n](...arg)
