@@ -78,10 +78,10 @@
     Tab.prototype.mapBind = function () {
         var _this = this
         for (let i = 0; i = this.tabs.length; i++) {
-            this.tabs[i].onclick = ()=> {
-                this.clearClass()
-                this.tabs[i].className = 'tab current'
-                this.bodys[i].className = 'body current'
+            this.tabs[i].onclick = function () {
+                _this.clearClass()
+                _this.tabs[i].className = 'tab current'
+                _this.bodys[i].className = 'body current'
             }
         }
     }
