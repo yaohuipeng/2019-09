@@ -1,46 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
+    <button id="nameBtn">姓名排序</button>
+    <button id='ageBtu'>年龄排序</button>
     <ul id='box'>
+        <li>姓名是：小红；年龄是 10</li>
+        <li>姓名是：小红；年龄是 10</li>
+        <li>姓名是：小红；年龄是 10</li>
         <li>姓名是：小红；年龄是 10</li>
     </ul>
 </body>
+
 </html>
 <script>
-    var ary = [ 
-        {
-            name:"小明",
-            age:10
+    var ary = [{
+            name: "小明",
+            age: 10
         },
         {
-            name:"小李",
-            age:100
+            name: "小李",
+            age: 100
         },
         {
-            name:"小红",
-            age:102
+            name: "小红",
+            age: 102
         },
         {
-            name:"小黄",
-            age:18
+            name: "小黄",
+            age: 18
         }
     ]
     var box = document.querySelector('#box');
+    var nameBtn = document.querySelector('#nameBtn');
+    var ageBtn = document.querySelector('#ageBtn');
     // box.innerHTML = `
     //     <li>姓名是：${ary[0].name}；年龄是 10</li>
     //     <li>姓名是：小红；年龄是 10</li>
     //     <li>姓名是：小红；年龄是 10</li>
     //     <li>姓名是：小红；年龄是 10</li>
     // `;
-    var str = ''
-    for(var i = 0; i < ary.length; i++){
-        str+=`姓名是：${ary[i].name}；年龄是 ${ary[i].age}</li>`
+    // var str = ''
+    // for (var i = 0; i < ary.length; i++) {
+    //     str += `姓名是：${ary[i].name}；年龄是 ${ary[i].age}</li>`
+    // }
+    // box.innerHTML = str
+
+    function renderHtml() {
+        var str = ''
+        for (var i = 0; i < ary.length; i++) {
+            str += `姓名是：${ary[i].name}；年龄是 ${ary[i].age}</li>`
+        }
+        box.innerHTML = str
     }
-    box.innerHTML = str
-    </script>
+    renderHtml();
+
+    var flag = 1;
+    ageBtn.onclick = function () {
+        flag *= -1;
+        ary.sort((a, b) => {
+            return (a.age - b.age)*flag
+            }
+        );
+        renderHtml();
+    }
+</script>
