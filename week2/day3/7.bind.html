@@ -13,15 +13,21 @@
 <script>
     //bind的用法与call 一摸一样只是返回值不让函数立即执行而是返回了一个新函数
     //新函数执行的时候 this 指向 换掉了；新函数执行传递的参数会补在通过bind绑定的参数后边
-    // 并且把老函数的指向改变了
-    var obj = {a:315}
-    var f = function(a,b,c,d){
-        console.log(this)
-        console.log(a,b,c,d)
+    // 我们可以把 bind绑定的参数理解成新函数的默认参数
+    var obj = {a:123};
+    var f = function (a,b,c) {
+        console.log(this);
+        console.log(a,b,c);
     }
-    var fn = f.bind(obj,2,5,8,)
-    console.log(fn)
-    var f2 = a=>a
+    var fn = f.bind(obj,6,5,6);
+    console.log(fn);
+
+    var f2 = (a)=>{
+        console.log(this);
+        return a;
+    }
+    f2();// window
+    f2.call(obj);// window
     
     //bind 返回值是个新函数；新函数执行的时候让老函数执行了
     //并且把老函数中的this指向改变了
