@@ -45,32 +45,34 @@ main .good_box:hover{
 main .good_box .img_box{
     height: 180px;
     width: 180px;
-    margin: 20px auto;
+    padding: 38px 0 24px;
+    margin: auto;
 }
 main .good_box .img_box img{
     width: 100%;
 }
 main .good_box .desc{
-    text-align: center
+    text-align: center;
+    font-size: 12px;
 }
 main .good_box .price{
     text-align: center;
     color: red;
-    margin-top: 30px;
+    margin-top: 19px;
 }
 main .good_box .bot_box{
     display: flex;
     position: absolute;
     bottom: 0;
-    height: 40px;
+    height: 35px;
     width: 100%;
+    font-size: 12px;
 }
 main .good_box .bot_box div{
     flex: 1;
     text-align: center;
     border-top: 1px solid #ccc;
-    line-height: 40px;
-    
+    line-height: 35px;
 }
 main .good_box .bot_box div:nth-child(1){
     border-right:1px solid #ccc 
