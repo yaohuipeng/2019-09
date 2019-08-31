@@ -50,6 +50,7 @@
         // context.eee(...arg);
         // delete context.eee; // 为了不再原有的对象中添加属性
         // var n = Math.random(); 
+        //Symbol是一个唯一的数据类型
         var n = Symbol()
         context[n] = this
         context[n](...arg)

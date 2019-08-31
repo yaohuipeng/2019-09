@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    var ary = [{
+            name: "小明",
+            age: 10
+        },
+        {
+            name: "小李",
+            age: 100
+        },
+        {
+            name: "小红",
+            age: 102
+        },
+        {
+            name: "小黄",
+            age: 18
+        }
+    ]
+    var box = document.querySelector('#box');
+    var nameBtn = document.querySelector('#nameBtn');
+    var ageBtn = document.querySelector('#ageBtn');
+
+    function renderHtml(){
+        let str = ''
+        ary.forEach((item,index)=>{
+            str+=`<li>姓名是${item.name};年龄是${index.age}</li>`
+        })
+    }
+    renderHtml()
+    let oLis = document.getElementsByTagName('li')
+    let temp = oLis[0]
+    //temp 是页面上
+    //
+    // box.appendChild(temp)
+
+
+
+
+</script>

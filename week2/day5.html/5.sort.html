@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="box">
+        <li>姓名是<span>小明</span>年龄是<span>10</span></li>
+        <li>姓名是<span>小明</span>年龄是<span>10</span></li>
+        <li>姓名是<span>小明</span>年龄是<span>10</span></li>
+    </ul>    
+</body>
+</html>
+<script>
+    let box = document.querySelector('.box')
+    let ary = [
+        {name: "小明",age: 10},
+        {name: "小明2",age: 20},
+        {name: "小明3",age: 30},
+        {name: "小明4",age: 40},   
+    ]
+    let [a,,,,b] = [1,2,3,4,5]//数组的解构赋值  是按照位置决定的
+    let {x,y,z,} = {x:21,y:35,a:21}//对象的解构赋值 是按照属性名对应的
+
+    function rendrtHtml(ary){
+        var str = ''
+        ary.forEach((item)=>{
+            let {name,age} = item//对象的解构赋值
+            str +=`<li>姓名是<span>${name}</span>年龄是<span>${age}</span></li>`
+        })
+        box.innerHTML = str
+    }
+    var olis = document.getElementsByTagName('li')
+    var olis2 = document.querySelectorAll('li')
+
+    let arr = [...olis]
+    arr.sort((a,b)=>{
+        let aName = a.getElementsByTagName('span')[0].innerHTML
+        let bName = b.getElementsByTagName('span')[0].innerHTML
+        return bName.localeCompare(aName)
+    })
+    arr.forEach(ltem=>{
+        box.appendChild(item)
+    })
+
+    //DOM的回流和重绘
+    //只要改动DOM结果 或者  元素位置；都会引发DOM回流；回流：浏览器要重新渲染一边结构
+    //重绘，只是让网页重新渲染一下css样式；
+</script>

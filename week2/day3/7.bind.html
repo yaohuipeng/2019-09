@@ -31,14 +31,14 @@
     
     //bind 返回值是个新函数；新函数执行的时候让老函数执行了
     //并且把老函数中的this指向改变了
-    /* Function.prototype.myBind = function(context,...arg){
+    Function.prototype.myBind = function(context,...arg){
         // this 是 f2
         var _this = this
         return function(){
             // _this()
-            _this.call(context,...arg)
+            return _this.call(context,...arg)
         }
-    } */
+    }
 
     Function.prototype.myBind = function(context,...arg){
 
