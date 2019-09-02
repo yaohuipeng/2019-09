@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    Function.prototype.myCall = function (a, ...arr) {
+        var n = Symbol();
+        a[n] = this;
+        var res = a[n](...arr);
+        delete a[n];
+        return res
+    }
+    var obj = {a:12,b:13}
+    var f = function(){
+        console.log(arguments)
+        console.log(this)
+        return 123
+    }
+    console.log(f.call(obj,2,3,1))
+    console.log(f.myCall(obj,2,3,1))
+    
+    Function.prototype.myBind = function (a, ...arr) {
+        var _this = this
+        return function () {
+            return _this.call(a, ...arr)
+        }
+    }
+    Function.prototype.myBind2 = function (a, ...arr) {
+        return ((...ary)=> {
+            this.call(a, ...arr,...ary)
+        })
+    }
+    Function.prototype.myApply = function(a,arr){
+        var n = Symbol();
+        a[n] = this;
+        var res = a[n](...arr);
+        delete a[n];
+        return res
+    }
+</script>

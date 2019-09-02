@@ -31,6 +31,7 @@
     
     //bind 返回值是个新函数；新函数执行的时候让老函数执行了
     //并且把老函数中的this指向改变了
+    //this被bind改变后就不会再发生第二次的修改
     Function.prototype.myBind = function(context,...arg){
         // this 是 f2
         var _this = this
