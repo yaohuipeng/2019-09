@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //exec
+    // 正则的  lastIndex 属性是定义了 下一次捕获的起始位置
+    var reg = /\d+/g
+    var res = reg.exec('珠  峰2019  2020')
+    var res2 = reg.exec('珠  峰2019  2020')
+    console.log(res)
+    console.log(res2)
+
+    var reg2 = /哈哈(\d+)([a-z]+)/g
+    // exec的返回值 第一项是大正则捕获的内容 ：从第二项开始都是小分组的内容
+    var str = '你好2019哈哈2018dfsaf珠峰2020哈哈2021asdf'
+    // var qbg = reg2.exec(str)
+    // console.log(qbg)
+    // console.log(reg2.exec(str2))
+
+    RegExp.prototype.execAll = function(str=''){
+        if(!this.global){
+            throw new Error('您的正则没有修饰符 g 不能使用该方法 请添加后重试')
+            return
+        }
+        str = str.toString()
+        //this--->reg2
+        var res = this.exec(str)
+        var ary = []
+        while(res){
+            ary.push(res)
+            res = this.exec(str)
+        }
+        return ary
+    }
+    console.log(reg2.execAll(str))
+    var str = '你好2019哈哈2018dfsaf珠峰2020哈哈2021asdf'
+    var reg2 = /哈哈(\d+)([a-z]+)/g
+</script>

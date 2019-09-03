@@ -15,7 +15,7 @@ function renderHtml(arr) {
     let res = ''
     arr.forEach(item => {
         let { img, title, price, num } = item
-        res = `<div class="good_box">
+        res += `<div class="good_box">
                 <div class="img_box"><img
                         src="${img}"
                         alt=""></div>
