@@ -17,17 +17,16 @@
     let psw = document.querySelector('#psw')
     let btn = document.querySelector('#btn')
     btn.onclick = function(){
-        // var rts = inp.value
+        var rts = inp.value
         var rts2 = psw.value
-        var res2 = /^\w{8,20}$/
         // var res = /^1[356789]\d{9}$/
         // if(res.test(rts)){
         //     alert('合法')
         // }else{
         //     alert('不合法')
         // }
-        var bol = /[A-Z]/.test(res2)&&/[a-z]/.test(res2)&& /\d/.test(res2) 
-        var bol2 = res2.length>=8 && res2.length<=20
+        var bol = /[A-Z]/.test(rts2)&&/[a-z]/.test(rts2)&& /\d/.test(rts2) 
+        var bol2 = rts2.length>=8 && rts2.length<=20
         if(bol && bol2){
             alert('密码合法')
         }else{
@@ -56,7 +55,7 @@
 
 
     // 4.验证身份证号
-    // var reg4 = /^[1-9]\d{5}\d{4}\d{2}\d{2}\d{2}\d(\d|x)?{18}$/
+    var reg4 = /^[1-9]\d{5}\d{4}\d{2}\d{2}\d{2}\d(\d|x)$/
 
     // 5.验证密码
     var reg = /^\w{6,16}$/
