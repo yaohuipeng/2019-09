@@ -32,9 +32,18 @@
 
     console.log(getParam(str));
 
-    //replace 比 match 的优势是  及时
-    //srt.replace('a','b')
-    //srt.replace(/a/g,'b')
-    //srt.replace(/a/g,function(){})
-    var str = ''
+    // 思考 把这个方法放置到字符串的原型上；
+    var str = 'htpp://baidu.com?a=123&bb=345&ccc=666';
+    var res = getParam(str);
+    console.log(res)
+
+
+
+    //replace 比 match的优势是 及时有g；也能实现小分组的捕获
+    //str.replace('a','b')
+    //str.replace(/a/g,'b')
+    //str.replace(/a/g,function(){})
+    var str = '珠峰zf培训px';
+    str = str.replace(/\w+/g,c=>c.toUpperCase())
+    console.log(str)
 </script>
