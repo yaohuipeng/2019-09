@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    Object.prototype.mygetParam = function getParam(str) {
+        var reg = /([^?=&]+)=([^?=&]+)/g;
+        var ary = this.match(reg)
+        console.log(ary)
+        var obj = {}
+        ary.forEach(itme => {
+            var a = itme.split('=')
+            var m = a[0],
+                n = a[1]
+            obj[m] = obj[n]
+        })
+        return obj
+    }
+
+    var str = 'http://www.baidu.com?a=121&b=123&c=34';
+
+    console.log(getParam(str));
+
+    //replace 比 match 的优势是  及时
+    //srt.replace('a','b')
+    //srt.replace(/a/g,'b')
+    //srt.replace(/a/g,function(){})
+    var str = ''
+</script>

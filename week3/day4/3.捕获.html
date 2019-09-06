@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+     RegExp.prototype.execAll = function (str) {
+        // 利用 exec 可以一直匹配 直到匹配到 null;
+        // this 就是 reg;
+        var that = this;
+        if(!that.global){
+            // 没有全局修饰符 g ;
+            that = eval(that.toString()+'g');//  '/xxx/g'
+        }
+        var res = that.exec(str);
+        var ary = [];
+        while(res){
+            ary.push(res);
+            res = that.exec(str);
+        }
+        // ary.push(res)
+        return ary;
+    }
+    var str = "BIDUPSID=AEBE749B9C1712C96CD8FC4AA3ED5F7B; PSTM=1563155906; BD_UPN=12314753; sug=3; sugstore=0; ORIGIN=0; bdime=0; BAIDUID=AEBE749B9C1712C96CD8FC4AA3ED5F7B:SL=0:NR=10:FG=1; BD_HOME=1; H_PS_PSSID=29768_1442_21111_29523_29519_29721_29567_29220_26350_29072_22158; BDRCVFR[S4-dAuiWMmn]=I67x6TjHwwYf0; delPer=0; BD_CK_SAM=1; PSINO=2; BDSVRTM=0"
+    Object.prototype.getCookie = function(key){
+        
+        var reg = /([^=; ]+)=([^=; ]+)/g
+        var ary = reg.execAll(this)
+        console.log(ary)
+        var obj = {}
+        ary.forEach(time=>{
+            obj[time[1]] = time[2]
+        })
+        console.log(ary)
+        return key? obj[key]:obj
+    }
+    str.getCookie()
+    str.getCookie('BIDUPSID')
+</script>
