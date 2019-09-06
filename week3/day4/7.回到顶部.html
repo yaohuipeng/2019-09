@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            height: 5000px;
+            background: -webkit-linear-gradient(#fff, rebeccapurple, red, gold, blue, #fff)
+        }
+
+        #btn {
+            position: fixed;
+            bottom: 100px;
+            right: 100px;
+            font-size: 30px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+
+
+    </div>
+    <button id="btn">回到顶部</button>
+</body>
+
+</html>
+<script>
+    var btn = document.querySelector('#btn')
+    var winH = document.documentElement.clientHeight || document.body.clientHeight
+    window.onscroll = function () {
+        var scrH = document.documentElement.scrollTop
+        if (scrH > winH) {
+            btn.style.display = 'block'
+        } else {
+            btn.style.display = 'none'
+        }
+    }
+    var timer = null
+    btn.onclick = function () {
+        timer = setInterval(function () {
+            if(document.documentElement.scrollTop <= 10){
+                clearInterval(timer)
+            }
+            document.documentElement.scrollTop -= 100
+        }, 20)
+        // document.documentElement.scrollTop = 0
+    }
+</script>
