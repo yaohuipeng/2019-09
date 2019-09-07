@@ -14,7 +14,25 @@
 
 </html>
 <script>
-    var str = '小明1234的又像是153426@qq.com'
-    var reg = /(\d+)@qq.com/
-    console.log(reg.exec(str))
+    let ary1 = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2', 'D1', 'D2'];
+    let ary2 = ['A', 'B', 'C', 'D'];
+    //=>合并后的数组为：['A1', 'A2', 'A', 'B1', 'B2', 'B', 'C1', 'C2', 'C', 'D1', 'D2', 'D']
+    // ary2.push('e')
+    // ary2 = ary2.join('31')
+    // ary2 = ary2.split('1')
+    // ary2.pop('e')
+    // console.log(ary2);
+    ary2 = ary2.map(function(val,ind){
+        val +='3'
+        // console.log(val,ind)
+        return val
+    })
+    
+    let ary3 = [...ary1,...ary2] 
+    console.log(ary3.sort((a,b)=>a.localeCompare(b)));
+    ary3 = ary3.join('')
+    ary3 = ary3.replace(/3/g,'')
+    // ary3 = ary3.split('4')
+    ary3 = ary3.split(/(?=[A-Z][0-9]?)/)
+    console.log(ary3)
 </script>

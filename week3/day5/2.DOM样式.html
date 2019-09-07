@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" style="padding: 30px">sdfsd</div>
+</body>
+
+</html>
+<script src="./utils.js"></script>
+<script>
+    var {getCss,setCss,offset,winH} = utils
+    var box = document.getElementById('box')
+    console.log(box.style.width)
+    console.log(box.style.padding);
+    //
+    // getComputedStyle(box,null)//通过这种方法我们可以获得当前元素的所有样式 ie6-8不兼容
+    // box.currentStyle  ie6-8
+    console.log(utils.getCss(box,'height'))
+    utils.setCss(box,'background','blue')
+    utils.setCss(box,'margin',200)
+    console.log(offset(box))
+
+</script>

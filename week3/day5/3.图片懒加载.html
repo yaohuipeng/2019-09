@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        body {
+            height: 2000px;
+            background: #eee;
+        }
+
+        #box {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            top: 1600px;
+            border: 1px dashed red
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <img id="img" src="default.gif"
+            realSrc="https://img20.360buyimg.com/jdcms/s300x300_jfs/t1/43435/23/11116/370464/5d48076aE242660dd/fbbe60ebd81462ac.jpg.webp"
+            alt="">
+    </div>
+</body>
+
+</html>
+<script src="./utils.js"></script>
+<script>
+    var {
+        offset,
+        winH,
+        fadeIn
+    } = utils
+    var img = document.getElementById('img')
+    function loadImg(ele) {
+        if (ele.loaded) return
+        let scrT = document.documentElement.scrollTop
+        let winh = winH()
+        let tarT = offset(ele).t
+        if (scrT + winh > tarT) {
+            console.log(1);
+            let realSrc = ele.getAttribute('realSrc')
+            // ele.src = realSrc
+            let temp = new Image()
+            // let tepm = document.captureEvents('img')
+            temp.src = realSrc
+            temp.onload = function () {
+                ele.src = realSrc
+                temp = null
+                fadeIn(ele)
+            }
+            ele.loaded = true
+        }
+    }
+    window.onscroll = function () {
+        loadImg(img)
+    }
+    
+
+</script>
