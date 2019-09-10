@@ -17,5 +17,35 @@
             2.自执行函数中的this 是指向 window的
             3.一般函数执行时，内部this只想 看点， 点前边是谁就是谁；其他都是window 
     */
-   
+   // 1
+    // btn.onclick = function(){
+    //     console.log(this)
+    // }
+    // btn.onclick = ()=>{
+    //     console.log(this)
+    // }
+    // var fn = () => {
+    //     console.log(this);
+    //     console.log(arguments);
+    // }
+    // fn();
+
+    // 2
+    (function(n){
+        console.log(n) // 100
+        console.log(this); // window
+    })(100);   
+
+
+    // 3
+    var ary = [
+        1,
+        2,
+        function(){console.log(this)},
+        ()=>{console.log(this)}
+    ];
+    let f = ary[2];
+    f();//window
+    ary[2](); //ary.2()  ary
+    ary[3](); //ary.3()  window
 </script>
