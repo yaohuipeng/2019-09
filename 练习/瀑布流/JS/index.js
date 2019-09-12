@@ -1,10 +1,10 @@
 
-let { getCss, setCss, winH, offset, fadeIn } = utils
+let { getCss, setCss, winH, offset, fadeIn } = utils//引入  utlis  方法
 let flag = false// 数据已请求完成； true代表正在请求
 var olis = document.querySelectorAll('.box>li')
 function init() {
     [...olis].forEach(itme => itme.innerHTML = '')
-}
+}//清除原有样式
 init()
 // 第一步 获取数据，
 function getData() {

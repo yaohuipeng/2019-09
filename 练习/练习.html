@@ -22,19 +22,22 @@
     // ary2 = ary2.split('1')
     // ary2.pop('e')
     // console.log(ary2);
-    ary2 = ary2.map(function(val,ind){
-        val +='3'
+    ary2 = ary2.map(function (val, ind) {
+        val += '3'
         // console.log(val,ind)
         return val
     })
-    
-    let ary3 = [...ary1,...ary2] 
-    console.log(ary3.sort((a,b)=>a.localeCompare(b)));
+
+    let ary3 = [...ary1, ...ary2]
+    console.log(ary3.sort((a, b) => a.localeCompare(b)));
     ary3 = ary3.join('')
-    ary3 = ary3.replace(/3/g,'')
+    ary3 = ary3.replace(/3/g, '')
     // ary3 = ary3.split('4')
     ary3 = ary3.split(/(?=[A-Z][0-9]?)/)
     console.log(ary3)
 </script>
 <script>
+    var a = (x,z)=>x-z
+    console.log(a(12,13))
+    
 </script>
