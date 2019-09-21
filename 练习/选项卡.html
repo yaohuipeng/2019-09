@@ -87,76 +87,47 @@
 
 </html>
 <script>
-    function Tab(idSelector) {
-        this.box = document.querySelector(idSelector);
-        this.tabs = this.box.getElementsByClassName('tab');
-        this.bodys = this.box.getElementsByClassName('body');
-        this.mapBind()
-    }
-    Tab.prototype.mapBind = function () {
-        for (let i = 0; i < this.tabs.length; i++) {
-            this.onclick = () => {
-                this.clearClass();
-                this.tabs[i].className = 'tab current';
-                this.bodys[i].className = 'body current'
+    /* 
+        选项卡思路： 点击上边的tab 让下边的body 跟着显示或者隐藏即可；
+    */
+    let btns = document.querySelectorAll('.tab'),
+        bodys = document.querySelectorAll('.body');
+    /* 
+    for(let i = 0; i < btns.length; i++){
+        btns[i].onclick = function(){
+            // 给当前元素添加类名 兄弟移除current类名
+            // 先清除所有的current 再给当前元素添加
+            for(let j = 0 ; j < btns.length; j++){
+                btns[j].classList.remove('current');
+                bodys[j].classList.remove('current');
             }
+            this.classList.add('current');
+            bodys[i].classList.add('current');
         }
-    }
-    Tab.prototype.clearClass = function () {
-        for (let j = 0; j < this.tabs.length; j++) {
-            this.onclick = () => {
-                this.tabs[j].className = 'tab';
-                this.bodys[j].className = 'body'
-            }
-        }
-    }
-    new Tab('.box')
-</script>
-<script>
-    Function.prototype.myApply = function(){
-        
-    }
-</script>
-<!-- <script>
-    let ary1 = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2', 'D1', 'D2'];
-    let ary2 = ['A', 'B', 'C', 'D'];
-    //=>合并后的数组为：['A1', 'A2', 'A', 'B1', 'B2', 'B', 'C1', 'C2', 'C', 'D1', 'D2', 'D']
-    // ary2.push('e')
-    // ary2 = ary2.join('31')
-    // ary2 = ary2.split('1')
-    // ary2.pop('e')
-    // console.log(ary2);
-    ary2 = ary2.map(function (val, ind) {
-        val += '3'
-        // console.log(val,ind)
-        return val
-    })
+    }     
+    */
 
-    let ary3 = [...ary1, ...ary2]
-    console.log(ary3.sort((a, b) => a.localeCompare(b)));
-    ary3 = ary3.join('')
-    ary3 = ary3.replace(/3/g, '')
-    // ary3 = ary3.split('4')
-    ary3 = ary3.split(/(?=[A-Z][0-9]?)/)
-    console.log(ary3)
-</script> -->
-<!-- <script>
-    function fn(n) {
-        for (var i = 0; i < n; i++) {
-            (function (a) {
-                setTimeout(() => {
-                    console.log(a + 1)
-                }, 1000 * (a + 1))
-            })(i)
+    function clearClass() {
+        // 清除类名：
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].className = 'tab';
+            bodys[i].className = 'body'
         }
     }
-    fn(3)
-</script> -->
-<!-- <script>
-Object.prototype.hasOwnProperty = function(key){
-    if((key in this)&& !this.hasOwnProperty('key')){
-        return true
+
+    function cli(i) {
+        return function () {
+            clearClass();
+            this.className = 'current tab';
+            bodys[i].className = 'current body';
+        }
     }
-    return false
-}
-</script> -->
+    for (var i = 0; i < btns.length; i++) {
+        /* btns[i].onclick = function(){
+            clearClass();
+            this.className = 'current tab';
+            bodys[i].className = 'current body';
+        } */
+        btns[i].onclick = cli(i);
+    }
+</script>

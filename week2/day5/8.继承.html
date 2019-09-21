@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //类 是  继承  封装(高内聚 低耦合)  多态
+
+    function Person(name,age){
+        Animal.call(this,10000)
+        this.name = name
+        this.age = age
+    }
+    Person.prototype = Object.create(Animal.prototype)
+    Person.prototype.eat = function(){
+        console.log('吃');
+    }
+    function Animal (iq){
+        this.iq = iq
+    }
+    Animal.prototype.move = function(){
+        console.log('动');
+    }
+    Animal.prototype.sleep = function(){
+        console.log('睡');
+    }
+
+    var p1 = new Person('XM',100)
+
+
+
+    
+</script>
