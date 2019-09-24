@@ -1,4 +1,5 @@
 
+var olis = document.getElementsByTagName('li')
 var dataArr
 var xhr = new XMLHttpRequest()
 xhr.open('get', './data.json', true)
@@ -35,43 +36,12 @@ function qqq(arr) {
 let timeBtn = document.querySelector('.timeBtn'),
     priceBtn = document.querySelector('.priceBtn'),
     commentBtn = document.querySelector('.commentBtn')
-function  myBind(data) {
-    function click(ele, key) {
-        ele.flag = 1
-        ele.onclick = function () {
-            this.flag *= -1
-            dataArr.sort((n, m) => {
-                return (n[key] - m[key]) * this.flag
-            })
-            qqq(dataArr)
-        }
+function myBind(){
+    timeBtn.onclick =function(){
+        let ary = [...olis]
+        ary.sort((n,m)=>{
+            return n.appendChild('qqq')-m.appendChild('qqq')
+        })
+        ary.forEach(item=>box.appendChild(item))
     }
-    click(timeBtn, 'time')
-    click(priceBtn, 'price')
-    click(commentBtn, 'num')
 }
-
-// timeBtn.flag = 1
-// timeBtn.onclick = function () {
-//     this.flag *= -1
-//     dataArr.sort((n, m) => {
-//         return (n.time - m.time) * this.flag
-//     })
-//     qqq(dataArr)
-// }
-// priceBtn.flag = 1
-// priceBtn.onclick = function () {
-//     this.flag *= -1
-//     dataArr.sort((n, m) => {
-//         return (n.price - m.price) * this.flag
-//     })
-//     qqq(dataArr)
-// }
-// commentBtn.flag = 1
-// commentBtn.onclick = function () {
-//     this.flag *= -1
-//     dataArr.sort((n, m) => {
-//         return (n.num - m.num) * this.flag
-//     })
-//     qqq(dataArr)
-// }

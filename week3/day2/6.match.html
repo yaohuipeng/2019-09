@@ -51,3 +51,41 @@
         但是加上全局修饰符g之后，match只会捕获到所有的大正则匹配的内容
     */
 </script>
+<script>
+    Object.prototype.getType = function () {
+        var arr = ({}).toString.call(this)
+        var str = /[A-Z]\w+/
+        return str.exec(arr)[0].toLowerCase()
+    }
+    ''.getType()
+</script> 
+<script>
+    RegExp.prototype.execAll = function(str){
+        var _this = this
+        if(!_this.global){
+            //_this = eval(_this+'g')
+            // throw new Error('您的正则没有修饰符 g 不能使用该方法 请添加后重试')
+
+        }
+        var ary = _this.exec(str)
+        var arr = []
+        while(ary){
+            arr.push(ary[0])
+            ary = _this.exec(str)
+        }
+        return arr
+    }
+    var reg = /\d+/g;
+    var str = '珠峰2019珠峰2020';
+    
+</script>
+<script>
+    function getParam(url){
+        var reg = /([^?=&]+)=([^?=&]+)/g
+        var res = {}
+        reg.execAll(url).forEach(a => {
+            res[a[0]] = a[1]
+        });
+        return res
+    }
+</script>

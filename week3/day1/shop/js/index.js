@@ -1,7 +1,7 @@
 
 let dataArr
 let qqq = new XMLHttpRequest()
-qqq.open('get', './data.json', false)
+qqq.open('get', './data.json', true)
 qqq.onreadystatechange = function () {
     if (qqq.readyState == 4 && qqq.status == 200) {
 

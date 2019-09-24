@@ -147,8 +147,32 @@ Array.prototype.myUnique = function () {
 }
 
 //类数组转数组
-function fn(){
+function fn() {
     Array.from(arguments);
     [...arguments];
-    [].slice.call(arguments,0);
+    [].slice.call(arguments, 0);
+}
+
+Array.prototype.del = function (n) {
+    var ary = []
+    for (var i = 0; i < n; i++) {
+        var m = Math.round(Math.random() * (this.length - 1))
+        ary = ary.concat(m.splice(m, 1))
+    }
+
+    return ary
+}
+
+String.prototype.getParam = function(){
+    var ary = this.split('?')[1]
+    var arg = ary.split('#')[0]
+    var res =arg.split('&')
+    // console.log(arg);
+    var a = {}
+    res.forEach((timp) => {
+        var b = timp.split('=')
+        a[b[0]] = b[1]
+    })
+    a.hash = this.split('#')[1]
+    return a
 }
