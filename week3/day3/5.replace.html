@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
 <script>
     var str = '2019-02-03';
-    var res = str.replace(/-/g,'/');
+    var res = str.replace(/-/g, '/');
 
     var str = '珠峰2019培训2020';
-    var res = str.replace(/\d+/g,'')
-    var res = str.replace(/\d+/g,function (...arg) {
+    var res = str.replace(/\d+/g, '')
+    var res = str.replace(/\d+/g, function (...arg) {
         // 该回调函数的参数 第一项是大正则捕获的内容  后边若有小正则， 则就是小正则捕获的内容
         // 倒数第一项是 整个字符串 倒数第二项是  匹配到的起始字符的索引
         console.log(arg)
@@ -24,9 +27,9 @@
     })
     console.log(res);
 
-    var str = new Date().toLocaleString();// "2019/9/4 上午11:37:53"
+    var str = new Date().toLocaleString(); // "2019/9/4 上午11:37:53"
     // str2 ==> 今天是2019年9月4日 上午11:37:53
-    var str2 = str.replace(/(\d{4})(\/)(\d+)(\/)(\d+)/,function(...arg){
+    var str2 = str.replace(/(\d{4})(\/)(\d+)(\/)(\d+)/, function (...arg) {
         console.log(arg)
         return `今天是个好日子 今天是 ${arg[1]}年${arg[3]}月${arg[5]}日 哈哈哈`
     });
@@ -35,7 +38,7 @@
     // 使用replace实现身份证识别
 
     var str = '134435198909244356';
-    var str2 = str.replace(/\d{6}(\d{4})(\d{2})(\d{2})\d{2}(\d)(\d|X)/,function (...arg) {
+    var str2 = str.replace(/\d{6}(\d{4})(\d{2})(\d{2})\d{2}(\d)(\d|X)/, function (...arg) {
         console.log(arg)
         return `这个人的性别是${arg[4]%2 ? '男' : '女'} 生日是 ${arg[1]}年${arg[2]}月${arg[3]}日`
     })
@@ -49,16 +52,53 @@
 
     //使用 replace方法 去 实现 getParam 方法
     var str = 'http://baidu.com/?a=23&b_1=13&ccc=34';
-    function getParam(str){
+
+    function getParam(str) {
         var o = {};
-        str.replace(/([^?=&]+)=([^?=&]+)/g,function(a,b,c){
+        str.replace(/([^?=&]+)=([^?=&]+)/g, function (a, b, c) {
             // console.log(a,b,c);
-            debugger;
-            o[b]=c
+            o[b] = c
         })
         // str.replace(/([^?=&]+)=([^?=&]+)/g,(a,b,c)=>o[b]=c)
         return o;
     }
     var obj = getParam(str);
+</script>
+<script>
+    var str = 'aqweAVsdDFEc';
+    var reg = /[A-Z]/g
+    var res = str.replace(reg, function ($1) {
+        console.log($1)
+        return $1.toLowerCase()
+    })
+    console.log(res)
 
+
+
+    var str2 = '';
+    for (var i = 0; i < str.length; i++) {
+        let a = str[i];
+        if (a.toLowerCase() == a) {
+            // 说变量a对应的字符是一个小写字母
+            str2 += a.toUpperCase(); // toUpperCase()  把字母转成大写
+        } else {
+            str2 += a.toLowerCase(); // toLowerCase()  把字母转成小写
+        }
+    }
+    console.log(str, str2)
+</script>
+<script>
+    function render(template, data) {
+        let str = template.replace(/\{\{(\w+)\}\}/g, function (a, b, ) {
+            return data[b]
+
+        })
+        return str
+    }
+    let template = '我是{{name}}，年龄{{age}}，性别{{sex}}'
+    let data = {
+        name: '贤明',
+        age: 12
+    }
+   
 </script>
