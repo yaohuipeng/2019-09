@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    function getParam() {
+        var reg = /([^?&=]+)=([^?&=]+)/g
+        var obj = {}
+        url.replace(reg, function (a, b, c) {
+            obj[b] = c
+        })
+        return obj
+    }
+</script>
+<script>
+    // offset定位元素外边框到body的距离
+    function offset(ele) {
+        let l = ele.offsetLeft,
+            //左边框到上级参照物内边框的距离
+            t = ele.offsetTop;
+        //上边框到上级参照物内边框的距离
+        let temp = ele.offsetParent
+        //上级参照物
+        while (temp) {
+            l = ele.offsetLeft + ele.clientLeft
+            t = ele.offsetTop + ele.clientTop
+            temp = ele.offsetParent
+        }
+        return {
+            l,
+            t
+        }
+    }
+</script>
+<script>
+    //去重
+    var str = 'gfsdfgergbxbsrhfgbsfgwrgxcbsrdfg'
+    //双for去重
+    function getMax(str) {
+        var obj = {}
+        for (var i = 0; i < str.length; i++) {
+            if (obj.hasOwnProperty(str[i])) {
+                obj[str[i]] += 1
+            } else {
+                obj[str[i]] = 1
+            }
+        }
+        var s = '',
+            n = 0
+        for (var k in obj) {
+            if (k > n) {
+                n = obj[k]
+                s = k
+            }
+        }
+        return {
+            key: s,
+            val: n
+        }
+    }
+
+    function getMax1(str) {
+        var reg = /(\w)\1*/g
+        str = str.split('').sort().join('')
+        var s = '',
+            n = 0
+        str.replace(reg, function (a, b) {
+            if (a, length > 0) {
+                n = a.length
+                s = b
+            }
+        })
+        return {
+            key: s,
+            val: n
+        }
+    }
+</script>
+<script>
+    //大小写转换
+    var str = 'aHeLLo WorlD';
+</script>
+<script>
+    // 3、 小写数字 转大写      //  var n = 3842.22   叁仟捌佰肆拾贰元贰角贰分
+    var str = '今年是2017年'; //
+    var ary = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖', '拾'];
+    str.replace(/\d/g,function(n){
+        return ary[n]
+    })
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>回到顶部</title>
+    <style>
+        body {
+            height: 5000px;
+            background: -webkit-linear-gradient(red, blue, yellow, green, pink, #fff)
+        }
+        #btn{
+            position: fixed;
+            bottom: 100px;
+            right: 100px;
+            font-size: 30px;
+            /* display: none; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="btn">回到顶部</div>
+</body>
+
+</html>
+<script>
+    var btn = document.getElementById('btn')
+    var timer = null
+    btn.onclick = function(){
+        timer = window.setInterval(()=>{
+            if(document.documentElement.scrollTop==0){
+                clearInterval(timer)
+                return
+            }
+            document.documentElement.scrollTop-=10
+        },10)
+    } 
+    window.onmousewheel = function(){
+        document.documentElement.scrollTop
+        clearInterval(timer)
+    }
+</script>
