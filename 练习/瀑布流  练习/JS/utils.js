@@ -1,49 +1,41 @@
-//utils 这个js提供一些我们常用的样式
+// utils  这个JS提供一些我们常用的方法
 var utils = {
-    getCss: function (ele, attr) {
-        var reg = /^[+-]?\d+(\.\d+)?(px|pt|em|rem)?$/
-        var obj = getComputedStyle(ele, null)
-        var res = obj[attr]
-        if (reg.test(res)) {
+    getCss:function(ele,attr){
+        // getCss(box,'width')  获取box的 width 属性值
+        // getCss(box,'background')  获取box的 background 属性值
+        // px rem em pt 含有这些的字符串 我们用 parseFloat处理
+        var reg = /^[-+]?\d+(\.\d+)?(px|rem|em|pt)?$/
+        var obj = getComputedStyle(ele,null);
+        var res = obj[attr]; // 有可能是 100px
+        if(reg.test(res)){
             return parseFloat(res)
         }
-        return res
+        return res;
     },
-    setCss: function (ele, attr, val) {
-        var reg = /width|height|padding|margin|left|top|right|bottom/i
-        if (reg.test(attr)) {
-            ele.style[attr] = parseFloat(val) + 'px'
-        } else {
-            ele.style[attr] = val
+    setCss:function (ele,attr,val) {
+        var reg = /width|height|padding|margin|left|right|top|bottom/i;
+        if(reg.test(attr)){
+            ele.style[attr] = parseFloat(val)+'px'
+        }else{
+            ele.style[attr] = val;
         }
-
+        
     },
-    offset: function (ele) {
-        var l = ele.offsetLeft
-        var t = ele.offsetTop
-        var temp = ele.offsetParent
-        while (temp) {
-            l += temp.offsetLeft + temp.clientLeft
-            t += temp.offsetTop + temp.clientTop
-            temp = temp.offsetParent
+    offset:function (ele) {
+        // 获取ele到body的偏移量
+        var l = ele.offsetLeft,
+            t = ele.offsetTop;
+        var temp = ele.offsetParent;    
+        while(temp){
+            l += temp.offsetLeft + temp.clientLeft;
+            t += temp.offsetTop + temp.clientTop;
+            temp = temp.offsetParent;
         }
-        return {
-            l, t
+        return{
+            l,t
         }
     },
-    winH: function () {
-        return document.documentElement.clientHeight || document.body.clientHeight
-    },
-    fadeIn: function (ele) {
-        ele.style.opacity = 0
-        let a = 0
-
-        ele.timer = setInterval(() => {
-            a += 0.02
-            if (a >= 1) {
-                a = 1
-            }
-            ele.style.opacity = a
-        }, 20)
+    winH:function () {
+        return document.documentElement.clientHeight||document.body.clientHeight;
     }
 }
