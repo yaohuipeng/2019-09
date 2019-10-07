@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
+    <!-- <style>
         * {
             margin: 0;
             padding: 0;
@@ -67,11 +67,11 @@
         .body.current {
             display: block;
         }
-    </style>
+    </style> -->
 </head>
 
 <body>
-    <div class="box">
+    <!-- <div class="box">
         <ul class='tab_box'>
             <li class="tab current">css</li>
             <li class="tab">JS</li>
@@ -82,11 +82,11 @@
             <li class="body">JS基础</li>
             <li class="body">HTML基础</li>
         </ul>
-    </div>
+    </div> -->
 </body>
 
 </html>
-<script>
+<!-- <script>
     function Tab(idSelector) {
         this.box = document.querySelector(idSelector);
         this.tabs = this.box.getElementsByClassName('tab');
@@ -111,13 +111,8 @@
         }
     }
     new Tab('.box')
-</script>
+</script> -->
 <script>
-    Function.prototype.myApply = function(){
-        
-    }
-</script>
-<!-- <script>
     let ary1 = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2', 'D1', 'D2'];
     let ary2 = ['A', 'B', 'C', 'D'];
     //=>合并后的数组为：['A1', 'A2', 'A', 'B1', 'B2', 'B', 'C1', 'C2', 'C', 'D1', 'D2', 'D']
@@ -126,20 +121,24 @@
     // ary2 = ary2.split('1')
     // ary2.pop('e')
     // console.log(ary2);
-    ary2 = ary2.map(function (val, ind) {
+    ary2 = ary2.map(val=>{
         val += '3'
         // console.log(val,ind)
         return val
     })
 
     let ary3 = [...ary1, ...ary2]
-    console.log(ary3.sort((a, b) => a.localeCompare(b)));
+    console.log(ary3)
+    ary3.sort((a, b) => a.localeCompare(b))
+    console.log(ary3)
     ary3 = ary3.join('')
+    console.log(ary3)
     ary3 = ary3.replace(/3/g, '')
     // ary3 = ary3.split('4')
+    console.log(ary3)
     ary3 = ary3.split(/(?=[A-Z][0-9]?)/)
     console.log(ary3)
-</script> -->
+</script>
 <!-- <script>
     function fn(n) {
         for (var i = 0; i < n; i++) {
