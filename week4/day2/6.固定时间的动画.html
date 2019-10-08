@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid slateblue;
+            text-align: center;
+            line-height: 200px;
+            user-select: none;
+            position: relative;
+            left: 0;
+            transition: left 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">AAAAAAAAA</div>
+</body>
+
+</html>
+<script>
+    var box = document.getElementById('box');
+    let l = 0;
+    let winW = document.documentElement.clientWidth || document.body.clientWidth;
+    let boxW = box.offsetWidth;
+    let maxL = winW - boxW
+    let duration = 1000;// 一共要移动的时间
+    let speed = maxL / duration; // 1毫秒移动的距离
+    let timer = setInterval(()=>{
+        l+=20*speed
+        if(l>=maxL){
+            l=maxL
+            clearInterval(timer)
+        }
+        box.style.left = l+'px'
+    },20)
+</script>

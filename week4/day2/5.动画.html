@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid slateblue;
+            text-align: center;
+            line-height: 200px;
+            user-select: none;
+            position: relative;
+            margin-top: 20px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">AAAAAAAAA</div>
+</body>
+
+</html>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    // getComputedStyle(元素)
+    // IE低版本的使用 元素.currentStyle
+    // 监听窗口大小的改变  我们使用 window.onresize
+    var box = document.getElementById('box');
+    let l = 0;
+    let w = document.documentElement.clientWidth || document.body.clientWidth;
+    let boxW = box.offsetWidth;
+    let maxL = w - boxW
+    // var timer = setInterval(() => {
+    //     l++;
+    //     if (l >= maxL) {
+    //         l = maxL
+    //         clearInterval(timer)
+    //     }
+    //     box.style.left = l + 'px';
+    // }, 10)
+
+    function fn() {
+        l++;
+        if (l >= maxL) {
+            l = maxL
+        } else {
+            setTimeout(() => {
+                fn()
+            }, 10)
+            // requestAnimationFrame(fn)
+        }
+        box.style.left = l + 'px';
+    }
+    fn()
+</script>
