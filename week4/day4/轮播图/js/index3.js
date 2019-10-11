@@ -14,8 +14,9 @@ function getData() {
         url: './data.json',
         success: function (data) {
             //请求成功
-            console.log(data)
+            // console.log(data)
             render(data)
+            tipClicl()
         },
         error: function () {
             //请求失败
@@ -71,74 +72,33 @@ function autoFocus(m) {
     $tips.eq(m).addClass('current').siblings().removeClass('current')
 }
 
-$box.on('mouseenter',function(){
+$box.on('mouseenter', function () {
     clearInterval(timer)
 })
-$box.on('mouseleave',function(){
+$box.on('mouseleave', function () {
     autoMove()
 })
 
-$leftBtn.on('click',function(){
-    
+$leftBtn.on('click', function () {
+    n--
+    if (n < 0) {
+        $ul.css({ left: -$tips.length * 590 })
+        n = $tips.length - 1
+    }
+    $ul.animate({ left: -n * 590 }, 200)
+    autoFocus(n)
 })
-$rigthBtn.on('click',function(){
+$rigthBtn.on('click', function () {
     move()
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function tipClicl() {
+    $tips.on('click', function () {
+        let m = $(this).index()
+        n = m
+        $ul.animate({ left: -590 * m }, 200)
+        autoFocus(m)
+    })
+}
 
 
 /* try {
