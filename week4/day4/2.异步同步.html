@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //JS 异步单线程    进程（浏览器就是一个进程）  线程（一个进程会包含多个线程）
+
+    // 
+    console.log(666);
+    setTimeout(()=>{
+        console.log(999);
+        
+    },1000)
+    setTimeout(()=>{
+        console.log(93339);
+        
+    },200)
+    console.log(999);
+    
+</script>
