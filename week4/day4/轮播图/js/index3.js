@@ -100,6 +100,24 @@ function tipClicl() {
     })
 }
 
+$.fn.extend({
+    // 把对应的方法放到了JQ的原型上
+    myFn:function(){
+        console.log(666)
+        console.log(this);
+    },
+    banner:function(){
+
+    }
+})
+$.extend({
+    // 把对应的方法放到了JQ自身上（JQ 当作了普通对象）
+    myFn:function(){
+        console.log(999)
+    }
+})
+
+
 
 /* try {
 
