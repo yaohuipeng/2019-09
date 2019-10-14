@@ -9,7 +9,6 @@ let $ul = $('#box .img_box ul'),
 
 function getData() {
     $.ajax({
-        type: 'get',
         url: './data.json',
         success: function (data) {
             render(data)
@@ -76,7 +75,7 @@ $box.on('mouseleave', function () {
 
 $rigthBtn.on('click', function () {
     move()
-})
+},500)
 
 $leftBtn.on('click', function () {
     n--
@@ -85,4 +84,4 @@ $leftBtn.on('click', function () {
     }
     n--
     move()
-})
+},500)
