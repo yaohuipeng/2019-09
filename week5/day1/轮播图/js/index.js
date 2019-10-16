@@ -1,4 +1,4 @@
-var banner = (function(){
+var banner = (function () {
     let idSelector = '';
     let $box = null,
         $ul = null,
@@ -8,14 +8,14 @@ var banner = (function(){
         $leftBtn = null,
         $rightBtn = null;
     var n = 0, timer = null; // n 控制了全局图片对应的索引  
-    function throttle(fn,wait=500){
+    function throttle(fn, wait = 500) {
         let flag = true;
-        return function(){
-            if(!flag)return;
+        return function () {
+            if (!flag) return;
             flag = false;
             setTimeout(() => {
                 flag = true;
-                fn.apply(this,arguments)
+                fn.apply(this, arguments)
             }, wait);
         }
     }

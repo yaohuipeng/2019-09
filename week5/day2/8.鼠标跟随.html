@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .litImg {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .bigImg {
+            width: 2000px;
+            height: 800px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #litImgBox {
+            width: 400px;
+            height: 200px;
+            display: block;
+            margin: 50px;
+            border: 1px solid salmon;
+            position: relative;
+        }
+
+        #bigImgBox {
+            position: absolute;
+            right: 200px;
+            top: 0;
+            overflow: hidden;
+            width: 500px;
+            height: 400px;
+            display: none;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="litImgBox">
+        <img src="https://img13.360buyimg.com/babel/s360x360_jfs/t1/55994/25/12986/180011/5d9ee070E112fc4cd/154d6d283d5d1733.jpg"
+            alt="" class='litImg'>
+        <div class="box"></div>
+    </div>
+    <div id="bigImgBox">
+        <img src="https://img13.360buyimg.com/babel/s360x360_jfs/t1/55994/25/12986/180011/5d9ee070E112fc4cd/154d6d283d5d1733.jpg"
+            alt="" class='bigImg'>
+    </div>
+</body>
+
+</html>
+<script>
+    var litImgs = document.querySelector('.litImg');
+    var bigImgs = document.querySelector('.bigImg');
+    var bigImgBoxs = document.getElementById('bigImgBox');
+    var litImgBoxs = document.getElementById('litImgBox');
+    var box = document.querySelector('.box')
+    litImgBoxs.onmouseenter = function () {
+        bigImgBoxs.style.display = 'block';
+        // bigImgs.style.display = 'block';
+        litImgBoxs.onmousemove = function (e) {
+            // console.log(e.pageX, e.pageY)
+            if(e.pageX>=litImgBoxs.style.left-50){
+                box.style.left=litImgBoxs.style.left-50
+            }
+            box.style.left = e.pageX - 50 + 'px'
+            box.style.top = e.pageY - 50 + 'px'
+
+        }
+    //     litImgBoxs.onmousemove = function (e) {
+    //     // console.log(e.pageX, e.pageY)
+    //     bigImgs.style.left = -e.pageX - 50 + 'px'
+    //     bigImgs.style.top = -e.pageY - 50 + 'px'
+    // }
+    }
+    
+    litImgs.onmouseleave = function () {
+        bigImgBoxs.style.display = 'none';
+        // bigImgs.style.display = 'none';
+        litImgs.onmousemove = null
+    }
+
+    // litImgBoxs.onmousemove = function (e) {
+    //     console.log(e.pageX, e.pageY)
+    //     box.style.left = e.pageX - 50 + 'px'
+    //     box.style.top = e.pageY - 50 + 'px'
+    // }
+</script>

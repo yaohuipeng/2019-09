@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            box-sizing: border-box;
+        }
+
+        #outer {
+            width: 500px;
+            height: 500px;
+            background: red;
+            margin: 50px auto;
+        }
+
+        #center {
+            width: 400px;
+            height: 400px;
+            background: blue;
+            margin: 50px auto;
+        }
+
+        #inner {
+            width: 300px;
+            height: 300px;
+            background: gold;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="center">
+            <div id="inner">
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    //点击穿透  因为有事件的传播
+    window.onclick = function(e){
+        e = e||window.event
+        e.stopPropagation()
+        console.log('window')
+    }
+    outer.onclick = function(e){
+        e = e||window.event
+        e.stopPropagation()
+        console.log('outer')
+    }
+    center.onclick = function(e){
+        e = e||window.event
+        e.stopPropagation()
+        console.log('center')
+    }
+    inner.onclick = function(e){
+        e = e||window.event
+        e.stopPropagation()//阻止事件得冒泡传播
+        e.cancelBuBBle = true
+        console.log('inner')
+    }
+
+    //事件传播的两个过程：传播  捕获
+</script>
