@@ -56,15 +56,15 @@
     var outer = document.getElementById('outer')
     var center = document.getElementById('center')
     var inner = document.getElementById('inner')
-    /* //DON 0级事件绑定
-    box.onclick = function(){
+    //DON 0级事件绑定
+    /* box.onclick = function(){
         console.log(555)
     }
     box.onclick = function(){
         console.log(666)
-    }
+    } */
     // JQ  是 DOM 2级事件绑定
-    $('#box').on('click',function(){
+    /* $('#box').on('click',function(){
         console.log(111)
     })
     $('#box').on('click',function(){
@@ -112,19 +112,19 @@
         2级事件的同一个元素的同一个事件  可以绑定多个事件
     */
 
-
-
-                                     
+    //    $('#inner').one('click',function () {
+    //        console.log('one')
+    //    })                             
     Element.prototype.one = function (type, callback) {
-        function fn(e){
-            callback.call(this,e)
-            this.removeEventListener(type,fn,false)
+        function fn(e) {
+            callback.call(this, e)
+            this.removeEventListener(type, fn, false)
         }
-        this.addEventListener(type,fn,false)
+        this.addEventListener(type, fn, false)
 
 
     }
     inner.one('click', function () {
-        console.log('myone',this)
+        console.log('myone', this)
     })
 </script>
