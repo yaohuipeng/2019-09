@@ -134,16 +134,18 @@ Array.prototype.myReverse = function () {
 }
 
 //数组去重
-Array.prototype.myUnique = function () {
-    var opj = {}
-    for (var i = 0; i < this.length; i++) {
-        var temp = this[i]
-        if (obj.hasOwnProperty(temp)) {
-            this.splice(i, 1)
-        }
+var str = 'dgfdfgsfgt3tdrgsdfgw45sdfsw4sghsrtert4';
 
+function getMax(str) {
+    str = str.split('').sort().join('');
+    var arr = str.match(/(\w)\1*/g);
+    arr.sort((a, b) => {
+        return b.length - a.length
+    })
+    return {
+        key: arr[0][0],
+        num: arr[0].length
     }
-    return arr
 }
 
 //类数组转数组
@@ -163,10 +165,10 @@ Array.prototype.del = function (n) {
     return ary
 }
 
-String.prototype.getParam = function(){
+String.prototype.getParam = function () {
     var ary = this.split('?')[1]
     var arg = ary.split('#')[0]
-    var res =arg.split('&')
+    var res = arg.split('&')
     // console.log(arg);
     var a = {}
     res.forEach((timp) => {
