@@ -10,21 +10,45 @@
     
 </body>
 </html>
+<script src="./jquery-3.3.1.js"></script>
 <script>
-    let p = new Promise(function(res,rej){
+    [].forEach(function(item,index){
+
+    })
+    // pending等待状态   resolved 成功态    rejected 失败态
+    // 一经改变  状态就不再发生任何改变；
+    let p = new Promise(function(resolve,reject){
         // executor 函数
-        // console.log(res,rej)
-        res(123)
-        console.log(qqq)
-        rej(666)
-        console.log(999)
+        // console.log(resolve,reject)
+        // resolve(234);// 同步把状态变成了  resolved;
+        // // console.log(qqq);
+        // reject(666);
+        // console.log(999)
+        // setTimeout(() => {
+        //    console.log(qqq) 
+        // }, 10);
+        $.ajax({
+            url:'./1.json',
+            success:resolve,
+            // error:resolv
+            error:reject
+        })
 
-    })
+    });
     p.then(function(data){
+        // resolve
         console.log(data)
-
     },function(err){
-        console.log(err)
+        // reject
+        console.log(err);
+    }).catch((err)=>{
+        console.log('catch',err)
+    }).finally(()=>{
 
-    })
+    });
+
+    // Promise.all([p1,p2,p3]).then((data)=>{},()=>{})
+    // Promise.race([p1,p2,p3]).then((data)=>{},()=>{})
+    // Promise.reject('执行失败').then(()=>{},()=>{}) // 手动创造一个失败态
+    // Promise.resolve('执行成功').then(()=>{}) // 手动创造一个成功态
 </script>

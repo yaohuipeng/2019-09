@@ -42,9 +42,15 @@
                 focus()   让该元素聚焦
                 blur()    让改元素失焦
 
-        系统事件
-                window.onscroll  页面滚动； 只要能出现滚动条的元素 都可以绑定 scroll事件
-                window.onresize  窗口大小发生改变的时候
-                window.onload    页面资源加载完成之后触发
-     */
+     系统事件    onscroll
+                onresize
+                onload  页面资源加载完成
+                $(document).ready(function(){}) DOM 结构加载完成  DOMContentLoaded
+
+
+    */
+    inp.focus();
+    window.onresize = function(){
+        document.write(666);
+    }
 </script>

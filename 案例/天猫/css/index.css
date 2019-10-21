@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+#head {
+    width: 1520px;
+    height: 32px;
+    background: #f2f2f2;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.heads {
+    width: 1230px;
+    height: 32px;
+    margin: 0 auto;
+    color: #999;
+    text-decoration: none;
+}
+#head .heads .left_box {
+    height: 32px;
+    line-height: 32px;
+    float: left;
+}
+#head .heads .left_box p{
+    float: left;
+}
+#head .heads .left_box a {
+    color: #999;
+    text-decoration: none;
+    padding: 0 10px 0 10px;
+}
+
+#head .heads .left_box .a1 {
+    padding-left: 20px;
+}
+
+#head .heads .left_box a:hover {
+    color: #FF0036;
+}
+#head .heads ul{
+    float: right;
+    height: 32px;
+    line-height: 32px;
+}
+#head .heads ul li{
+    float: left;
+    
+}
+#head .heads ul li a{
+    text-decoration: none;
+    padding: 0 10px 0 10px;
+}
+#head .heads ul li .sn_menu{
+    height: 32px;
+    position: relative;
+}
+#head .heads ul li .sn_menu a{
+    height: 32px;display: block;
+    position: relative;
+    padding-right:14px;
+    border: solid #f2f2f2;
+    border-width: 0 1px;
+}
+#head .heads ul .sn_li8{
+    width: 74px;
+}
+#head .heads ul li .sn_menu b{
+    position: absolute;
+    right: 6px;
+    top:15px;
+    border-width: 3px;
+    border-style: solid dashed dashed;
+    border-color: #bbb transparent transparent;
+}
