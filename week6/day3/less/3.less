@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@a: 75rem;
+
+#box {
+    width: 100/@a;
+    height: 100/@a;
+    background: red;
+}
+
+@media all and(max-width:750px) {
+    #box {
+        width: 100px;
+        height: 100px;
+        background: blue;
+    }
+}

@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#box {
+  width: 1.33333333rem;
+  height: 1.33333333rem;
+  background: red;
+}
+@media all and (max-width: 750px) {
+  #box {
+    width: 100px;
+    height: 100px;
+    background: blue;
+  }
+}
