@@ -10,7 +10,7 @@
   float: right;
 }
 header {
-  background: rebeccapurple;
+  background: #fe350e;
   padding: 3vw;
 }
 header .logo_box {
@@ -26,15 +26,15 @@ header .logo_box .tap {
   background: rgba(0, 0, 0, 0.4);
   height: 8vw;
   line-height: 8vw;
-  border-radius: 10px;
+  border-radius: 15px;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
 header .logo_box .tap .lit {
-  color: #333;
-  font-size: 8px;
+  color: #c5c5cc;
+  font-size: 13px;
 }
 header .logo_box .tool_box {
   font-size: 17px;
