@@ -47,7 +47,7 @@ function renderList(data) {
             // 无图情况
             str += `<div class="list">
                 <div class="textBox">
-                    <p>黑色风格还是的尴尬和</p>
+                    <p>红红火火恍恍惚惚</p>
                     <div class="commentBox">
                         <span class='icon_com'></span>
                         <span>${item.commentNum}</span>
@@ -59,7 +59,7 @@ function renderList(data) {
             // 单图情况
             str += `<div class="list">
                 <div class="textBox">
-                    <p>黑色风格还是的尴尬和</p>
+                    <p>红红火火恍恍惚惚</p>
                     <div class="commentBox">
                         <span class='icon_com'></span>
                         <span>${item.commentNum}</span>
