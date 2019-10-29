@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-
 <body>
     <div id="box">
-
+        <button>555</button>
     </div>
 </body>
-
 </html>
 <script>
     // ajax:  async javascript and  xml
@@ -30,37 +27,37 @@
    
     */
     let xhr = new XMLHttpRequest();
-    xhr.open('get', './data.xml', true);
-    xhr.onreadystatechange = function () {
+    xhr.open('get','./data.xml',true);
+    xhr.onreadystatechange = function(){
         console.log(xhr.readyState)
-        if (xhr.readyState == 4 && xhr.status == 200) {
+        if(xhr.readyState==4 && xhr.status == 200){
             console.log(xhr.response)
             box.appendChild(xhr.responseXML.firstChild);
-            console.log(document.querySelector('span'))
-            document.querySelector('span').onclick = function () {
+            console.log(document.querySelector('button'))
+            document.querySelector('button').onclick = function(){
                 console.log(75757)
                 // alert(this.getAttribute('data-id'))
             }
         }
     }
-    xhr.timeout = 1000; // 最长请求时间；超过这个时间之后自动结束请求
-    xhr.ontimeout = function () {
+    xhr.timeout = 1000;// 最长请求时间；超过这个时间之后自动结束请求
+    xhr.ontimeout = function(){
         console.log('超时')
     }
-    xhr.onerror = function (e) {
+    xhr.onerror = function(e){
         // 在请求失败的时候触发； 跨域会触发;
         console.log(e)
     }
-    xhr.onabort = function () {
+    xhr.onabort = function(){
         //主动打断请求的时候 会触发
         console.log('打断请求')
     }
-
+    
     xhr.send();
     setTimeout(() => {
         // xhr.abort();// 主动打断http请求; 请求还没有完成的时候 可以打断；
     }, 10);
-
-    // timeout = 2000 毫秒
-    // abort()  取消 http 请求
+    
+    // timeout = 2000 毫秒     ontimeout
+    // abort()    取消http请求   onabort
 </script>

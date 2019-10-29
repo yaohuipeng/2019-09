@@ -46,38 +46,37 @@
     // ftp  后台上传文件的协议  默认端口是 21；
 
     // 强缓存   cache-control: no-cache
-    let as = document.querySelectorAll('a')
-    let h2s = document.querySelectorAll('h2')
-    window.onhashchange = function () {
-        // 监听hash的更改
-        console.log(location.hash)
-        init()
-    }
-
-    function init() {
-        switch (location.hash) {
-            case '#css':
-                tab(0)
-                draek;
-            case '#js':
-                tab(1)
-                draek;
-            case '#html':
-                tab(2)
-                draek;
-        }
-    }
-    init()
+    let as = document.querySelectorAll('a');
+    let h2s = document.querySelectorAll('h2');
 
     function tab(n) {
         [...as].forEach((item, index) => {
             if (index == n) {
-                item.classList.add('current')
+                item.classList.add('current');
                 h2s[index].style.display = 'block'
             } else {
                 item.classList.remove('current')
                 h2s[index].style.display = 'none'
             }
         })
+    }
+    function init(){
+        switch (location.hash) {
+            case '#css':
+                tab(0)
+                break;
+            case '#js':
+                tab(1)
+                break;
+            case '#html':
+                tab(2)
+                break;
+        }
+    }
+    init();
+    window.onhashchange = function () {
+        // 监听hash的更改
+        console.log(location.hash)
+        init();
     }
 </script>
