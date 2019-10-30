@@ -95,6 +95,7 @@ body #head .heads > ul .sn_li5 .sn_menu_at {
   left: -48px;
   top: 26px;
   box-shadow: 0 0 5px #aaa;
+  z-index: 100;
   display: none;
 }
 html #head .heads > ul .sn_li5 .sn_menu_at div,
@@ -192,6 +193,7 @@ body #head .heads > ul li .sn_menu .sn_menu_un {
   border-width: 0 1px 1px;
   display: none;
   padding: 8px 10px;
+  z-index: 100;
   background: #fff;
 }
 html #head .heads > ul li .sn_menu .sn_menu_un a,
@@ -211,6 +213,7 @@ body #head .heads > ul li .sn_menu .sn_menu_un1 {
   right: 0;
   left: auto;
   padding: 8px 10px;
+  z-index: 100;
 }
 html #head .heads > ul li .sn_menu .sn_menu_un1 ul,
 body #head .heads > ul li .sn_menu .sn_menu_un1 ul {
@@ -253,6 +256,7 @@ body #head .heads > ul li .sn_menu .sn_menu_un2 {
   right: 0;
   left: auto;
   padding: 25px 0;
+  z-index: 1000;
   display: none;
 }
 html #head .heads > ul li .sn_menu .sn_menu_un2 .cont1,
@@ -439,7 +443,7 @@ body #seek > div {
 html #seek > div .img,
 body #seek > div .img {
   position: absolute;
-  left: -45px;
+  left: -60px;
 }
 html #seek > div .right,
 body #seek > div .right {
@@ -462,6 +466,20 @@ body #seek > div .seek_1 .seek_1_1 {
   position: relative;
   height: 36px;
 }
+html #seek > div .seek_1 .seek_1_1 > div,
+body #seek > div .seek_1 .seek_1_1 > div {
+  /* label {
+                            font-size: 14px;
+                            line-height: 36px;
+                            height: 36px;
+                            color: rgb(102, 102, 102);
+                            visibility: visible;
+                            position: absolute;
+                            left: 8px;
+                            top: 0;
+                            z-index: 1;
+                        } */
+}
 html #seek > div .seek_1 .seek_1_1 > div input,
 body #seek > div .seek_1 .seek_1_1 > div input {
   height: 36px;
@@ -472,18 +490,6 @@ body #seek > div .seek_1 .seek_1_1 > div input {
   padding: 5px 3px 5px 5px;
   border: none;
   outline: none;
-}
-html #seek > div .seek_1 .seek_1_1 > div label,
-body #seek > div .seek_1 .seek_1_1 > div label {
-  font-size: 14px;
-  line-height: 36px;
-  height: 36px;
-  color: #666666;
-  visibility: visible;
-  position: absolute;
-  left: 8px;
-  top: 0;
-  z-index: 1;
 }
 html #seek > div .seek_1 .seek_1_1 > button,
 body #seek > div .seek_1 .seek_1_1 > button {
@@ -526,4 +532,184 @@ body #seek > div .seek_1 > ul li a {
 html #seek > div .seek_1 .lis a,
 body #seek > div .seek_1 .lis a {
   color: #FF0036;
+}
+html #content,
+body #content {
+  position: relative;
+  background: #fff;
+  color: #999;
+  font-size: 12px;
+}
+html #content .head,
+body #content .head {
+  position: relative;
+  font-size: 0;
+  padding-top: 0;
+  height: 35.5px;
+  background-color: #fff;
+  border-style: solid;
+  border-width: 0 0 1.5px;
+  border-color: #FF0036;
+}
+html #content .head > div,
+body #content .head > div {
+  width: 1230px;
+  margin: 0 auto;
+  padding-right: 30px;
+}
+html #content .head > div .icon_icon,
+body #content .head > div .icon_icon {
+  margin-left: 200px;
+  width: 1030px;
+}
+html #content .head > div .icon_icon a,
+body #content .head > div .icon_icon a {
+  height: 35px;
+  line-height: 35px;
+  cursor: pointer;
+  float: left;
+  padding: 0 8px;
+  font-weight: 500;
+  font-size: 16px;
+  display: block;
+  color: #333;
+  letter-spacing: normal;
+  position: relative;
+}
+html #content .head > div .icon_icon a > img,
+body #content .head > div .icon_icon a > img {
+  width: 100px;
+  height: 30px;
+  margin-top: 3px;
+  display: block;
+}
+html #content .head > div .icon_icon a:hover,
+body #content .head > div .icon_icon a:hover {
+  color: #FF0036;
+}
+html #content .button,
+body #content .button {
+  position: relative;
+  height: 500px;
+  width: 100%;
+}
+html #content .button .left,
+body #content .button .left {
+  width: 1230px;
+  padding-right: 30px;
+  position: relative;
+  height: 0;
+  z-index: 100;
+  margin: 0 auto;
+}
+html #content .button .left > ul,
+body #content .button .left > ul {
+  position: absolute;
+  z-index: 100;
+  margin-top: -36px;
+  height: 36px;
+  width: 200px;
+  color: #fff;
+  line-height: 36px;
+}
+html #content .button .left > ul .left_1,
+body #content .button .left > ul .left_1 {
+  float: left;
+  width: 100px;
+  text-align: center;
+  font-size: 14px;
+  color: #f0f0f0;
+  cursor: pointer;
+  background-color: #C60A0A;
+}
+html #content .button .left > ul .sing1,
+body #content .button .left > ul .sing1 {
+  color: #DD2727;
+  background-color: rgba(238, 238, 238, 0.95);
+}
+html #content .button .left > ul .left_2,
+body #content .button .left > ul .left_2 {
+  position: relative;
+  color: #ffe013;
+}
+html #content .button .left > ul .sing2,
+body #content .button .left > ul .sing2 {
+  color: #fff;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACAQMAAABIeJ9nAAAAA1BMVEUYFRXvJ83tAAAAAXRSTlPM0jRW/QAAAApJREFUCNdjAAIAAAQAASDSLW8AAAAASUVORK5CYII=);
+}
+html #content .button .left .leftT .box_1-1 > ul,
+body #content .button .left .leftT .box_1-1 > ul {
+  background-color: rgba(0, 0, 0, 0.55);
+  width: 200px;
+  height: 500px;
+  position: relative;
+  z-index: 11;
+}
+html #content .button .left .leftT .box_1-1 > ul li,
+body #content .button .left .leftT .box_1-1 > ul li {
+  position: relative;
+  height: 31.2px;
+  line-height: 31.2px;
+  color: #fff;
+  font-size: 14px;
+}
+html #content .button .left .leftT .box_1-1 > ul li > i,
+body #content .button .left .leftT .box_1-1 > ul li > i {
+  margin-left: 14px;
+  margin-right: 4px;
+  height: 31px;
+  line-height: 31px;
+  font-size: 16px;
+  display: inline-block;
+  opacity: 0.5;
+}
+html #content .button .left .leftT .box_1-1 > ul li a,
+body #content .button .left .leftT .box_1-1 > ul li a {
+  height: 31px;
+  color: #fff;
+  font-size: 14px;
+}
+html #content .button .left .leftT .box_1-2 > ul,
+body #content .button .left .leftT .box_1-2 > ul {
+  position: relative;
+  padding-top: 29px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACAQMAAABIeJ9nAAAAA1BMVEUYFRXvJ83tAAAAAXRSTlPM0jRW/QAAAApJREFUCNdjAAIAAAQAASDSLW8AAAAASUVORK5CYII=);
+  width: 200px;
+  height: 500px;
+  z-index: 11;
+  box-sizing: border-box;
+}
+html #content .button .left .leftT .box_1-2 > ul li,
+body #content .button .left .leftT .box_1-2 > ul li {
+  width: 200px;
+  padding: 0 24px;
+  margin-bottom: 14px;
+  position: relative;
+  height: 31.2px;
+  line-height: 31.2px;
+  color: #fff;
+  font-size: 14px;
+}
+html #content .button .left .leftT .box_1-2 > ul li > a,
+body #content .button .left .leftT .box_1-2 > ul li > a {
+  display: block;
+  width: 106px;
+  height: 31px;
+  border: 1px solid #cb0c10;
+  border-radius: 10px;
+  color: #fff;
+  text-align: left;
+  padding-left: 34px;
+  padding-right: 10px;
+  line-height: 29px;
+}
+html #content .button .left .leftT .box_1-2 > ul li > a > i,
+body #content .button .left .leftT .box_1-2 > ul li > a > i {
+  margin-left: 0;
+  width: 16px;
+  line-height: 29px;
+  display: inline-block;
+  margin-right: 4px;
+  height: 31px;
+  font-size: 16px;
 }
