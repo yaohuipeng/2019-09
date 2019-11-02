@@ -672,7 +672,6 @@ body {
                 }
 
                 .leftT {
-                    .box_1 {}
 
                     .box_1-1 {
                         >ul {
@@ -683,11 +682,23 @@ body {
                             z-index: 11;
 
                             li {
-                                position: relative;
                                 height: 31.2px;
                                 line-height: 31.2px;
                                 color: #fff;
                                 font-size: 14px;
+
+                                &:hover {
+                                    background: #fff;
+                                    color: red;
+                                }
+
+                                &:hover .banBox {
+                                    display: block;
+                                }
+
+                                &:hover a {
+                                    color: red;
+                                }
 
                                 >i {
                                     margin-left: 14px;
@@ -704,6 +715,95 @@ body {
                                     color: #fff;
                                     font-size: 14px;
                                 }
+
+                                .banBox {
+                                    display: none;
+                                    height: 500px;
+                                    width: 852px;
+                                    left: 200px;
+                                    top: 0;
+                                    position: absolute;
+                                    background-color: #fff;
+
+                                    .banBox1 {
+                                        float: left;
+                                        width: 583px;
+                                        height: 462px;
+                                        margin: 19px 30px;
+                                        overflow: hidden;
+                                        background-color: #fff;
+
+                                        >div {
+                                            .h1 {
+                                                width: 60px;
+                                                color: #333;
+                                                margin-right: 30px;
+                                                position: relative;
+                                                font-size: 14px;
+                                                font-weight: 700;
+                                                line-height: 22px;
+                                                height: 22px;
+                                                float: left;
+
+                                                >div {
+                                                    display: inline-block;
+                                                    width: 60px;
+                                                    overflow: hidden;
+                                                    text-align: justify;
+                                                }
+                                            }
+
+                                            .A {
+                                                width: 493px;
+                                                float: left;
+
+                                                a {
+                                                    height: 22px;
+                                                    line-height: 22px;
+                                                    font-size: 14px;
+                                                    color: #666;
+                                                    float: left;
+                                                    margin-left: 13px;
+                                                }
+
+                                                >div {
+                                                    margin-bottom: 10.5px;
+                                                    border-bottom-width: 1px;
+                                                    border-bottom-style: dashed;
+                                                    border-bottom-color: rgba(0, 0, 0, .1);
+                                                    clear: both;
+                                                    height: 10.5px;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    .banBox2 {
+                                        float: left;
+                                        background-color: #FAFAFA;
+                                        width: 189px;
+                                        padding: 10px;
+                                        height: 480px;
+
+                                        a {
+                                            float: left;
+                                            width: 73px;
+                                            margin-right: 1px;
+                                            margin-bottom: 1px;
+                                            height: 37px;
+                                            padding: 5px 10px;
+                                            overflow: hidden;
+                                            background-color: #fff;
+
+                                            img {
+                                                width: 73px;
+                                                display: block;
+                                                margin: 0 auto;
+                                            }
+                                        }
+                                    }
+                                }
+
                             }
                         }
                     }
@@ -739,6 +839,10 @@ body {
                                     padding-left: 34px;
                                     padding-right: 10px;
                                     line-height: 29px;
+
+                                    &:hover {
+                                        background: #cb0c10;
+                                    }
 
                                     >i {
                                         margin-left: 0;

@@ -647,11 +647,23 @@ body #content .button .left .leftT .box_1-1 > ul {
 }
 html #content .button .left .leftT .box_1-1 > ul li,
 body #content .button .left .leftT .box_1-1 > ul li {
-  position: relative;
   height: 31.2px;
   line-height: 31.2px;
   color: #fff;
   font-size: 14px;
+}
+html #content .button .left .leftT .box_1-1 > ul li:hover,
+body #content .button .left .leftT .box_1-1 > ul li:hover {
+  background: #fff;
+  color: red;
+}
+html #content .button .left .leftT .box_1-1 > ul li:hover .banBox,
+body #content .button .left .leftT .box_1-1 > ul li:hover .banBox {
+  display: block;
+}
+html #content .button .left .leftT .box_1-1 > ul li:hover a,
+body #content .button .left .leftT .box_1-1 > ul li:hover a {
+  color: red;
 }
 html #content .button .left .leftT .box_1-1 > ul li > i,
 body #content .button .left .leftT .box_1-1 > ul li > i {
@@ -668,6 +680,92 @@ body #content .button .left .leftT .box_1-1 > ul li a {
   height: 31px;
   color: #fff;
   font-size: 14px;
+}
+html #content .button .left .leftT .box_1-1 > ul li .banBox,
+body #content .button .left .leftT .box_1-1 > ul li .banBox {
+  display: none;
+  height: 500px;
+  width: 852px;
+  left: 200px;
+  top: 0;
+  position: absolute;
+  background-color: #fff;
+}
+html #content .button .left .leftT .box_1-1 > ul li .banBox .banBox1,
+body #content .button .left .leftT .box_1-1 > ul li .banBox .banBox1 {
+  float: left;
+  width: 583px;
+  height: 462px;
+  margin: 19px 30px;
+  overflow: hidden;
+  background-color: #fff;
+}
+html #content .button .left .leftT .box_1-1 > ul li .banBox .banBox1 > div .h1,
+body #content .button .left .leftT .box_1-1 > ul li .banBox .banBox1 > div .h1 {
+  width: 60px;
+  color: #333;
+  margin-right: 30px;
+  position: relative;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 22px;
+  height: 22px;
+  float: left;
+}
+html #content .button .left .leftT .box_1-1 > ul li .banBox .banBox1 > div .h1 > div,
+body #content .button .left .leftT .box_1-1 > ul li .banBox .banBox1 > div .h1 > div {
+  display: inline-block;
+  width: 60px;
+  overflow: hidden;
+  text-align: justify;
+}
+html #content .button .left .leftT .box_1-1 > ul li .banBox .banBox1 > div .A,
+body #content .button .left .leftT .box_1-1 > ul li .banBox .banBox1 > div .A {
+  width: 493px;
+  float: left;
+}
+html #content .button .left .leftT .box_1-1 > ul li .banBox .banBox1 > div .A a,
+body #content .button .left .leftT .box_1-1 > ul li .banBox .banBox1 > div .A a {
+  height: 22px;
+  line-height: 22px;
+  font-size: 14px;
+  color: #666;
+  float: left;
+  margin-left: 13px;
+}
+html #content .button .left .leftT .box_1-1 > ul li .banBox .banBox1 > div .A > div,
+body #content .button .left .leftT .box_1-1 > ul li .banBox .banBox1 > div .A > div {
+  margin-bottom: 10.5px;
+  border-bottom-width: 1px;
+  border-bottom-style: dashed;
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+  clear: both;
+  height: 10.5px;
+}
+html #content .button .left .leftT .box_1-1 > ul li .banBox .banBox2,
+body #content .button .left .leftT .box_1-1 > ul li .banBox .banBox2 {
+  float: left;
+  background-color: #FAFAFA;
+  width: 189px;
+  padding: 10px;
+  height: 480px;
+}
+html #content .button .left .leftT .box_1-1 > ul li .banBox .banBox2 a,
+body #content .button .left .leftT .box_1-1 > ul li .banBox .banBox2 a {
+  float: left;
+  width: 73px;
+  margin-right: 1px;
+  margin-bottom: 1px;
+  height: 37px;
+  padding: 5px 10px;
+  overflow: hidden;
+  background-color: #fff;
+}
+html #content .button .left .leftT .box_1-1 > ul li .banBox .banBox2 a img,
+body #content .button .left .leftT .box_1-1 > ul li .banBox .banBox2 a img {
+  width: 73px;
+  display: block;
+  margin: 0 auto;
 }
 html #content .button .left .leftT .box_1-2 > ul,
 body #content .button .left .leftT .box_1-2 > ul {
@@ -702,6 +800,10 @@ body #content .button .left .leftT .box_1-2 > ul li > a {
   padding-left: 34px;
   padding-right: 10px;
   line-height: 29px;
+}
+html #content .button .left .leftT .box_1-2 > ul li > a:hover,
+body #content .button .left .leftT .box_1-2 > ul li > a:hover {
+  background: #cb0c10;
 }
 html #content .button .left .leftT .box_1-2 > ul li > a > i,
 body #content .button .left .leftT .box_1-2 > ul li > a > i {
