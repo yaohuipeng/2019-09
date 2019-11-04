@@ -11,8 +11,24 @@ $(function () {
         axios.post('/user/login', {
             account, password
         }).then((data) => {
+            //登陆成功
+            //1.跳转到首页
+            //2.储存权限信息
             console.log(data)
+            if (data.code == 0) {
+                //密码正确
+                location.href = './index.html'
+                //储存权限信息
+                localStorage.setItem('power', data.power)
+                //把用户名存储在本地
+                localStorage.setItem('username', account)
+            } else {
+                //密码错误
+                alert('账号密码错误')
+            }
         }, (err) => {
+            //登陆失败
+            alert('网络错误，请稍后重置')
             console.log(err)
         })
     })
