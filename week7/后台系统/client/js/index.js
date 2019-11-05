@@ -126,18 +126,34 @@ $(function () {
     // 监听hash的改变 去判断显示客户管理还是组织结构
     function hash() {
         let $tar = $menuBox.find('.itemBox:last-child')
-        if(location.hash == '#customer'){
+        if (location.hash == '#customer') {
             // 当前要展示客户管理
             $tar.show().siblings('.itemBox').hide();
             let url = $tar.find('a').eq(0).attr('href');
-            $iframe.attr('src',url)
-        }else{
+            $iframe.attr('src', url)
+        } else {
             $tar.hide().siblings('.itemBox').show()
             $as = $menuBox.find('a');// 渲染完成之后再去更新变量
-            let url = $as.eq(0).attr('href')
-            $iframe.attr('src',url);// 跳转到第一个url
+
+            let currentUrl = sessionStorage.getItem('currentUrl')
+            if (currentUrl) {
+                $iframe.attr('src', currentUrl)
+            } else {
+                let url = $as.eq(0).attr('href')
+                $iframe.attr('src', url);// 跳转到第一个url
+            }
+
         }
     }
     hash();
-    window.addEventListener('hashchange',hash)
+    window.addEventListener('hashchange', hash)
+
+    //实现导航栏的折叠效果
+    function foldFn() {
+        let $h3s = $('.itemBox h3')
+        $h3s.on('click', function () {
+            $(this).siblings('.item').slideToggle('fast')
+        })
+    }
+    foldFn()
 })
