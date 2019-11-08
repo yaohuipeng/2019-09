@@ -719,6 +719,12 @@ body #content .button .left .leftT .box_1-1 > ul li .banBox .banBox1 > div .h1 >
   overflow: hidden;
   text-align: justify;
 }
+html #content .button .left .leftT .box_1-1 > ul li .banBox .banBox1 > div .h1 > i,
+body #content .button .left .leftT .box_1-1 > ul li .banBox .banBox1 > div .h1 > i {
+  position: absolute;
+  top: 0;
+  right: -15px;
+}
 html #content .button .left .leftT .box_1-1 > ul li .banBox .banBox1 > div .A,
 body #content .button .left .leftT .box_1-1 > ul li .banBox .banBox1 > div .A {
   width: 493px;
