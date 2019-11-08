@@ -7,12 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>B页面</h1>
+    
 </body>
 </html>
 <script>
-    var  aaa = 6666;
-    window.onmessage = function (e) {
-        console.log(e)
+    function *fn(){
+        yield 10
+        return 666
+        yield 100
+        yield 200
     }
+    let t = fn();
+    console.dir(t);
 </script>
