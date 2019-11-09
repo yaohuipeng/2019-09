@@ -3965,30 +3965,33 @@
                 </div>
             </div>
         </div>
-        <div class="swiper-container">
+        <div class="sw">
+            <div class="swiper-container  swiper ">
                 <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                      <img src="./images/1.jpg" alt="">
-                  </div>
-                  <div class="swiper-slide">
-                      <img src="./images/2.jpg" alt="">
-                  </div>
-                  <div class="swiper-slide">
-                      <img src="./images/3.jpg" alt="">
-                  </div>
-                  <div class="swiper-slide">
-                      <img src="./images/4.jpg" alt="">
-                  </div>
-                  <div class="swiper-slide">
-                      <img src="./images/5.jpg" alt="">
-                  </div>
-                  <div class="swiper-slide">
-                      <img src="./images/6.jpg" alt="">
-                  </div>
+                    <div class="swiper-slide">
+                        <img src="./images/1.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./images/2.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./images/3.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./images/4.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./images/5.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./images/6.jpg" alt="">
+                    </div>
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
+            </div>
         </div>
+
     </div>
 </body>
 
@@ -3997,20 +4000,20 @@
 <script src="./js/index.js"></script>
 <script src="./js/banner.js"></script>
 
-  <!-- Initialize Swiper -->
-  <script>
+<!-- Initialize Swiper -->
+<script>
     var swiper = new Swiper('.swiper-container', {
-      slidesPerView: 1,
-      spaceBetween: 30,
-      loop: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      autoplay: true
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        autoplay: true
     });
-  </script>
+</script>

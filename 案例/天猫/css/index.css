@@ -578,6 +578,7 @@ body #content .button {
   position: relative;
   height: 500px;
   width: 100%;
+  float: left;
 }
 html #content .button .left,
 body #content .button .left {
@@ -806,4 +807,21 @@ body #content .button .left .leftT .box_1-2 > ul li > a > i {
   margin-right: 4px;
   height: 31px;
   font-size: 16px;
+}
+html #content .sw,
+body #content .sw {
+  width: 100%;
+  height: 500px;
+  position: absolute;
+}
+html #content .sw .swiper,
+body #content .sw .swiper {
+  height: 500px;
+  width: 1000px;
+  margin: auto;
+}
+html #content .sw .swiper img,
+body #content .sw .swiper img {
+  width: 100%;
+  height: 100%;
 }
