@@ -39,13 +39,13 @@ fs.readdir('./node', null, (err, data) => {
     }
 }) */
 
-fs.mkdir('./qqq', (err) => {
+/* fs.mkdir('./qqq', (err) => {
     if (!err) {
         console.log('创建成功')
     }
-})
-/* fs.rmdir('./qqq', (err) => {
+}) */
+fs.rmdir('./qqq', (err) => {
     if (!err) {
         console.log('删除成功')
     }
-}) */
+})
