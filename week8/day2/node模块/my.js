@@ -1,11 +1,11 @@
 module.exports = {
-    f1() {
-        console.log(666)
+    f1(){
+        console.log('1')
     },
-    f1() {
-        console.log(999)
+    f2(){
+        console.log('2')
     },
-    f1() {
-        console.log(333)
+    f3(){
+        console.log('3')
     }
 }
