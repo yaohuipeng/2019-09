@@ -820,8 +820,28 @@ body #content .sw .swiper {
   width: 1000px;
   margin: auto;
 }
-html #content .sw .swiper img,
-body #content .sw .swiper img {
+html #content .sw .swiper .swiper-wrapper .swiper-slide,
+body #content .sw .swiper .swiper-wrapper .swiper-slide {
+  position: relative;
+}
+html #content .sw .swiper .swiper-wrapper .swiper-slide img,
+body #content .sw .swiper .swiper-wrapper .swiper-slide img {
   width: 100%;
   height: 100%;
+}
+html #content .sw .swiper .swiper-wrapper .swiper-slide a,
+body #content .sw .swiper .swiper-wrapper .swiper-slide a {
+  background-color: #fff;
+  position: absolute;
+  right: 0;
+  width: 220px;
+  height: 235px;
+}
+html #content .sw .swiper .swiper-wrapper .swiper-slide .a1,
+body #content .sw .swiper .swiper-wrapper .swiper-slide .a1 {
+  top: 10px;
+}
+html #content .sw .swiper .swiper-wrapper .swiper-slide .a2,
+body #content .sw .swiper .swiper-wrapper .swiper-slide .a2 {
+  bottom: 10px;
 }

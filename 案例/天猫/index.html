@@ -10,45 +10,50 @@
     <link rel="stylesheet" href="./css/banner.css">
     <link rel="stylesheet" href="./css/iconfont.css">
     <link rel="stylesheet" href="./css/index.css">
-    <!-- <style>
-            html, body {
-              position: relative;
-              height: 100%;
-            }
-            body {
-              background: #eee;
-              font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-              font-size: 14px;
-              color:#000;
-              margin: 0;
-              padding: 0;
-            }
-            .swiper-container {
-              width: 100%;
-              height: 100%;
-              margin-left: auto;
-              margin-right: auto;
-            }
-            .swiper-slide {
-              text-align: center;
-              font-size: 18px;
-              background: #fff;
-        
-              /* Center slide text vertically */
-              display: -webkit-box;
-              display: -ms-flexbox;
-              display: -webkit-flex;
-              display: flex;
-              -webkit-box-pack: center;
-              -ms-flex-pack: center;
-              -webkit-justify-content: center;
-              justify-content: center;
-              -webkit-box-align: center;
-              -ms-flex-align: center;
-              -webkit-align-items: center;
-              align-items: center;
-            }
-          </style> -->
+    <!-- Demo styles -->
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -3970,21 +3975,45 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <img src="./images/1.jpg" alt="">
+                        <a class="a1" href="#">
+                            <img src="./images/1-1.jpg" alt="">
+                        </a>
+                        <a class="a2" href="#">
+                            <img src="./images/1-2.jpg" alt="">
+                        </a>
                     </div>
                     <div class="swiper-slide">
                         <img src="./images/2.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
                         <img src="./images/3.jpg" alt="">
+                        <a class="a1" href="#">
+                            <img src="./images/3-1.jpg" alt="">
+                        </a>
+                        <a class="a2" href="#">
+                            <img src="./images/3-2.jpg" alt="">
+                        </a>
                     </div>
                     <div class="swiper-slide">
                         <img src="./images/4.jpg" alt="">
                     </div>
                     <div class="swiper-slide">
                         <img src="./images/5.jpg" alt="">
+                        <a class="a1" href="#">
+                            <img src="./images/5-1.jpg" alt="">
+                        </a>
+                        <a class="a2" href="#">
+                            <img src="./images/5-2.jpg" alt="">
+                        </a>
                     </div>
                     <div class="swiper-slide">
                         <img src="./images/6.jpg" alt="">
+                        <a class="a1" href="#">
+                            <img src="./images/6-1.jpg" alt="">
+                        </a>
+                        <a class="a2" href="#">
+                            <img src="./images/6-2.jpg" alt="">
+                        </a>
                     </div>
                 </div>
                 <!-- Add Pagination -->
@@ -3999,21 +4028,3 @@
 <script src="./js/banner.js"></script>
 <script src="./js/index.js"></script>
 <script src="./js/banner.js"></script>
-
-<!-- Initialize Swiper -->
-<script>
-    var swiper = new Swiper('.swiper-container', {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        autoplay: true
-    });
-</script>

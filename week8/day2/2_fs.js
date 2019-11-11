@@ -16,12 +16,12 @@ let fs = require('fs')
 
 console.log(666) */
 
-/* let data = fs.readFileSync('./1.less','utf-8') 
+/* let data = fs.readFileSync('./1.less','utf-8')
 console.log(data)
 console.log(666)、
  */
 
-/* 
+/*
 fs.readdir('./node', null, (err, data) => {
     if (!err) {
         // console.log('data', data)
@@ -44,8 +44,60 @@ fs.readdir('./node', null, (err, data) => {
         console.log('创建成功')
     }
 }) */
-fs.rmdir('./qqq', (err) => {
+/* fs.rmdir('./qqq', (err) => {
     if (!err) {
         console.log('删除成功')
     }
+}) */
+
+/* fs.mkdir('./qqq', (err) => {
+
+})
+fs.writeFile('./qqq/1.txt','你好121','utf-8',(err)=>{
+    if(!err){
+        console.log('成功')
+    }
+}) */
+
+/* fs.appendFile('./qqq/1.txt','上来看得分纪录时刻','utf-8',(err)=>{
+    if(!err){
+        console.log('成功')
+    }
+}) */
+
+function append(url,data) {
+    fs.readFile(url,'utf-8',(err,d)=>{
+        if(d === undefined){
+            d = ''
+        }
+        fs.writeFile(url,d+data,'utf-8',(err)=>{
+            if(!err){
+                console.log('添加成功')
+            }
+        })
+        /* if(!err){
+            fs.writeFile(url,d+data,'utf-8',(err)=>{
+                if(!err){
+                    console.log('添加成功')
+                }
+            })
+        }else{
+            fs.writeFile(url,data,'utf-8',(err)=>{
+                if(!err){
+                    console.log('创建成功')
+                }
+            })
+        } */
+    })
+}
+// append('./qqq/3.txt','哈哈哈')
+
+/* fs.rmdir('./qqq', (err) => {
+    if (!err) {
+        console.log('删除成功')
+    }
+}) */
+
+fs.unlink('./1.txt',(err)=>{
+    console.log(err)
 })

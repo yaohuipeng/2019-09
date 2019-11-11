@@ -860,16 +860,41 @@ body {
         .sw {
             width: 100%;
             height: 500px;
-position: absolute;
+            position: absolute;
+
             .swiper {
                 height: 500px;
                 width: 1000px;
                 margin: auto;
 
-                img {
-                    width: 100%;
-                    height: 100%;
+                .swiper-wrapper {
+                    .swiper-slide {
+                        position: relative;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                        a {
+                            background-color: #fff;
+                            // display: block;
+                            position: absolute;
+                            right: 0;
+                            width: 220px;
+                            height: 235px;
+                        }
+
+                        .a1 {
+                            top: 10px;
+                        }
+
+                        .a2 {
+                            bottom: 10px
+                        }
+                    }
                 }
+
             }
 
         }
