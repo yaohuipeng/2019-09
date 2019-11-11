@@ -1,0 +1,10 @@
+img {
+  height: 100%;
+}
+h1 {
+  text-align: center;
+  line-height: 200px;
+  min-height: 200px;
+  color: #fff;
+  background: #000;
+}
