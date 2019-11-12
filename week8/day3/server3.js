@@ -1,59 +1,62 @@
 let http = require('http');
 let url = require('url');
-let {readFile,writeFile} = require('./promiseFs');
+let { readFile, writeFile } = require('./promiseFs');
 
-let server = http.createServer((req,res)=>{
+let server = http.createServer((req, res) => {
     console.log(req.method)
-    let {pathname,query} = url.parse(req.url,true);
+    let { pathname, query } = url.parse(req.url, true);
     let method = req.method;
-    res.setHeader('Access-Control-Allow-Origin', "*");// 让后端支持跨域
-    
-    res.writeHead(200,{
-        'Access-Control-Allow-Credentials':true,
-        "Access-Control-Allow-Headers": "x-requested-with,content-type,Cache-Control,Pragma,Date,x-timestamp"
+    res.setHeader('Access-Control-Allow-Origin', "http://localhost:3000");// 让后端支持跨域
+    // 跨域的源域不能是*  
+    // 跨域设置 cookie  
+    // 响应头需要有 Access-Control-Allow-Credentials 属性：
+    // 前端允许跨域携带cookie 
+    res.writeHead(200, {
+        'Access-Control-Allow-Credentials': true,
+        "set-cookie": 'qwer=1234553'
     })
-    if(req.method === 'OPTIONS'){
+    if (req.method === 'OPTIONS') {
         res.end('6666')
     }
     // list get
     // add  post
     switch (pathname) {
         case '/list':
-            if(method.toLowerCase() != 'get'){
+            if (method.toLowerCase() != 'get') {
                 res.statusCode = 405;
                 res.statusMessage = 'method not allowed';
                 res.end('')
-            }else{
-                readFile('./json/data.json').then(data=>{
+            } else {
+                readFile('./json/data.json').then(data => {
                     res.end(data)
-                }).catch(err=>{
+                }).catch(err => {
                     res.statusCode = 500;
                     res.end('')
                 })
             }
             break;
         case '/add':
-            if(method.toLowerCase() != 'post'){
+            if (method.toLowerCase() != 'post') {
                 res.statusCode = 405;
                 res.statusMessage = 'method not allowed';
                 res.end('')
-            }else{
+            } else {
                 // 获取前端给的请求体
                 let str = ''
-                req.on('data',function(chunk){
+                req.on('data', function (chunk) {
                     str += chunk;
                 });
-                req.on('end',function(){
+                req.on('end', function () {
                     console.log(str)
-                    readFile('./json/data.json').then(data=>{
-                        console.log('data',data.toString())
+                    readFile('./json/data.json').then(data => {
+                        console.log('data', data.toString())
                         let obj = JSON.parse(data.toString());
                         obj.data.push(...JSON.parse(str).a);
                         // obj是增加完数据之后的 对象
-                        return writeFile('./json/data.json',JSON.stringify(obj))
-                    }).then(data=>{
-                        res.end(JSON.stringify({code:0,data:'success'}))
-                    }).catch(err=>{
+                        return writeFile('./json/data.json', JSON.stringify(obj))
+                    }).then(data => {
+                        res.end(JSON.stringify({ code: 0, data: 'success' }))
+                    }).catch(err => {
                         res.statusCode = 500;
                         res.statusMessage = 'bad systerm';
                         res.end('')
@@ -67,17 +70,17 @@ let server = http.createServer((req,res)=>{
     }
 })
 let port = 8000;
-function listen(){
+function listen() {
     let cb = null;
-    if(port == 8000){
-        cb = ()=>{
+    if (port == 8000) {
+        cb = () => {
             console.log(`服务起于 ${port} 端口`)
         }
     }
-    server.listen(port,cb)
+    server.listen(port, cb)
 }
-server.on('error',function(e){
-    if(e.code == 'EADDRINUSE'){
+server.on('error', function (e) {
+    if (e.code == 'EADDRINUSE') {
         port++;
         listen();
     }
