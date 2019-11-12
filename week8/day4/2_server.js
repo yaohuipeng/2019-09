@@ -19,6 +19,7 @@ app.use((req, res, next) => {
     })
 
 })
+
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', 'http://localhost:8000')
     res.header('Access-Control-Allow-Credentials', true)
@@ -59,10 +60,11 @@ app.get('/list', function (req, res) {
         data: type ? data[type] : data // 前端给了type 我们就返回对应的属性值， 没给就整个对象返回
     })
 })
-app.post('/add', function (req, res) {
-    console.log(req.body)
+
+let ary = [];
+function f(req, res) {
     readFile('./package-lock.json').then(data => {
-        data = JSON.parse(data)
+        data = JSON.parse(data);
         Object.assign(data.dependencies.my, req.body)
         return writeFile('./package-lock.json', JSON.stringify(data))
     }).then(data => {
@@ -70,6 +72,24 @@ app.post('/add', function (req, res) {
             code: 0,
             data: 'success'
         })
+        let fn = ary.shift();
+        fn && fn();
+    }).catch(err => {
+        console.log(err)
+        res.send({
+            err: err
+        })
     })
-
+}
+let timer = null;
+app.post('/add', function (req, res) {
+    console.log(req.body)// 放置是 前端post发给后台的数据
+    ary.push(() => {
+        f(req, res)
+    })
+    clearTimeout(timer)
+    timer = setTimeout(() => {
+        let fn = ary.shift();
+        fn && fn();
+    }, 100);
 })

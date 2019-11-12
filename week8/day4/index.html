@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="用户名" id="usn">
+    <input type="password" placeholder="密码" id="psd">
+    <button id="btn">注册</button>
+</body>
+</html>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+let name = $('#usn').val()
+let psd = $('#psd').val()
+$('#btn').on('click',function(){
+    $post('http://localhost:8000/reg',{
+        username = name,
+        password = psd
+    })
+})
+</script>
