@@ -48,7 +48,8 @@ app.use((req,res,next)=>{
 })
 app.use(session({
     //在这个中间件之后 会在 req上多了一个 session的属性
-	secret: 'ZFPX',
+    name:'qqq',// 默认  connect.sid
+	secret: 'myqqq', // session会根据 这个属性 和后端种在session的属性名 来生成对应的字段
 	saveUninitialized: false,
 	resave: false,
 	cookie: {
@@ -92,7 +93,7 @@ app.post('/login',function(req,res){
     })
     if(bol){
         // 登录成功， 需要后端给前端种植一个cookie
-        console.log(req.session)
+        req.session.userID = username;// 咱们后端在session上种植了一个属性
         res.send({
             code:0,
             data:{
@@ -106,4 +107,24 @@ app.post('/login',function(req,res){
         })
     }
 })
-
+app.get('/info',function(req,res){
+    console.log(req.session.userID);
+    // 登陆成功之后， 后端会给前端种植一个cookie;
+    // 以后每一次请求后台接口的时候， 后端都会根据这个cookie值 去判断 前端是否处于有效登录期
+    // 后端的具体写法就是  根据登陆时 在session上设置的属性 还有没有来进行判断
+    if(req.session.userID){
+        res.send({
+            code:0,
+            data:{
+                name:req.session.userID,
+                sex:0,
+                age:18
+            }
+        })
+    }else{
+        res.send({
+            code:1,
+            msg:"no login"
+        })
+    }
+})

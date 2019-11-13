@@ -6,7 +6,7 @@ btn.onclick = function(){
     fetch('http://localhost:8080/add?type=pro',{
         method:'post',
         credentials:'include',
-        body:JSON.stringify({a:[100,200,300]})
+        body:JSON.stringify({f:[100,200,300]})
     }).then(data=>data.json()).then(data=>{
         console.log(data);
     })
@@ -14,6 +14,16 @@ btn.onclick = function(){
         a:123,
         b:234,
         c:345
+    })
+    $.post('http://localhost:8080/add?type=pro',{
+        a2:123,
+        b2:234,
+        c2:345
+    })
+    $.post('http://localhost:8080/add?type=pro',{
+        a3:123,
+        b3:234,
+        c3:345
     })
 }
 
