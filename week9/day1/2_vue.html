@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        框架  库
+        框架  你写代码  框架帮你调用
+        库    人家写代码  你来调用
+
+        渐进式  vue vue-router vuex
+    -->
+    <div id="app">
+        <!-- 
+            小胡子语法
+            里边只能写表达式  不能写语句
+        -->
+        <h1>{{qqq}}</h1>
+        <h1>{{qqq}} afsdfasdfasdf{{hello}}</h1>
+        <h1>{{aaa + qqq}}</h1>
+    </div>
+    <div id="app2">
+        <h1>{{qqq}}</h1>
+    </div>
+</body>
+
+</html>
+<script>
+    new Vue({
+        el: '#app',// 不能是 body 和 html
+        // template:`<div>这是个执行模板{{qqq}}</div>`,
+        data: {
+            // data 中的属性  就是vue的变量
+            qqq: 'hello',
+            hello: '1234561354',
+            aaa: [1, 1, 2, 31, 2]
+        }
+    }).$m
+</script>

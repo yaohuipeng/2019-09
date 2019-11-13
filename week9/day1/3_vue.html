@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <style>
+        [v-cloak]{
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>
+            姓名是:{{name}}
+            <!-- 
+                在vue中 所有的 v-xxx 的行内属性 都是vue的指令
+            -->
+            <input type="text" v-model="name1">
+            <h2>{{name1}}</h2>
+            <h3 v-text = "name1"></h3>
+        </h1>
+        <input type="text" v-model = "age">
+        <h3>{{age?未成年人:成年人}}</h3>
+    </div>
+</body>
+
+</html>
+<script>
+    //双向数据绑定
+    /* 
+        v-model="vue变量"
+        v-name="vue变量"
+        v-cloak 后边不跟值  就是利用了vue渲染完成之前  元素上 还会带有
+    */
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            name: "珠峰",
+            name1:666,
+            age:0
+        }
+    })
+</script>

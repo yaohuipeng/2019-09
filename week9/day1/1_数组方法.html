@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // push pop  unshift shift reverse splice sort
+
+    // fptEach  map  fliter  some  every  find  reduce  include  flat
+    // some 只要有一个回调函数返回结果是 true 结果就是true  后边回调不再执行
+    // every 只要有一个回调函数返回结果是 false 结果就是false  后边回调不再执行
+    let ary = [100, 200, 300, 400, 500, 600]
+    ary.reduce(function (prev, next) {
+        // prev 若第一个执行回调函数是  prev的是reduce 的第二个参数  若不存在第二个参数则prev 就是第一项
+        // 在后边 的prev就是上一个回调函数的返回值 next就是当前值 
+        // reduce 的执行结果就是最后一个回调函数的返回值
+        console.log(arguments)
+        return 666
+    }, 10)
+    ary = [{
+        a: 10
+    }, {
+        a: 20
+    }, {
+        a: 30
+    }, {
+        a: 40
+    }]
+    let t = ary.reduce((prev, next) => prev + next.a, 0)
+
+    let res2 = ary.find((item, index) => {
+        //
+        console.log(6)
+        return item.a == 30
+    })
+</script>
