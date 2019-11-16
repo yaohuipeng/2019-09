@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/element-ui/lib/theme-chalk/index.css">
+    <style>
+        select {
+            width: 200px;
+            height: 50px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{name}}</h1>
+        <el-input v-model="username" style="width: 300px;" placeholder="请输入用户名"></el-input>
+        <h2></h2>
+        <div>
+            <el-radio v-model="sex" label="1">男</el-radio>
+            <el-radio v-model="sex" label="2">女</el-radio>
+        </div>
+
+        <h2>选择课程</h2>
+        <div>
+            <!-- <input type="checkbox" value="html" v-model="course">html
+            <input type="checkbox" value="css" v-model="course">css
+            <input type="checkbox" value="js" v-model="course">js
+            <input type="checkbox" value="node" v-model="course">node
+            <input type="checkbox" value="vue" v-model="course">vue
+            <input type="checkbox" value="react" v-model="course">react
+            <input type="checkbox" value="wx" v-model="course">微信小程序 -->
+            <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="checkAllFn">全选
+            </el-checkbox>
+            <div style="margin: 15px 0;"></div>
+            <el-checkbox-group v-model="course" @change="handleoneFn">
+                <el-checkbox v-for="item in courseAry" :label="item.val" :key="item.val">{{item.text}}</el-checkbox>
+            </el-checkbox-group>
+        </div>
+
+        <h2>爱好</h2>
+        <div>
+            <!-- <select v-model="hoddy">
+                <option value="item.val" v-for="item in ary">{{item.text}}</option>
+            </select> -->
+            <el-select v-model="hoddy" placeholder="请选择">
+                <el-option v-for="item in ary" :key="item.value" :label="item.text" :value="item.val">
+                </el-option>
+            </el-select>
+        </div>
+
+        <h2>手机号</h2>
+        <div>
+            <!-- <input type="text" v-model="phone"> -->
+            <el-input v-model="phone" style="width: 300px;" type="tel" placeholder="请输入手机号"></el-input>
+        </div>
+        <h2></h2>
+        <!-- <button @click="submit">提交</button> -->
+        <el-button :plain="true" type="primary" @click="submit">提交</el-button>
+    </div>
+</body>
+
+</html>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script src="../node_modules/element-ui/lib/index.js"></script>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            name: "你好",
+            ary: [{
+                val: 'eat',
+                text: '吃'
+            }, {
+                val: 'play',
+                text: '玩'
+            }, {
+                val: 'sleep',
+                text: '睡'
+            }, {
+                val: 'study',
+                text: '学习'
+            }],
+            username: "",
+            checkAll: false,
+            course: [],
+            courseAry: [{
+                    val: 'html',
+                    text: 'html'
+                },
+                {
+                    val: 'css',
+                    text: 'css'
+                },
+                {
+                    val: 'js',
+                    text: 'js'
+                },
+                {
+                    val: 'node',
+                    text: 'node'
+                },
+                {
+                    val: 'vue',
+                    text: 'vue'
+                }
+            ],
+            isIndeterminate: false,
+            sex: 0,
+            hoddy: "",
+            phone: "",
+        },
+
+        methods: {
+            checkAllFn(val) {
+                console.log(val)
+                this.course = val ? this.courseAry.map(item => item.val) : [];
+                this.isIndeterminate = false;
+            },
+            handleoneFn(ary) {
+                console.log(ary, this.course)
+                if (ary.length != 0 && ary.length != this.courseAry.length) {
+                    this.isIndeterminate = true;
+                } else {
+                    this.isIndeterminate = false;
+                    this.checkAll = ary.length == 0 ? false : true
+                }
+            },
+            submit() {
+                let obj = {};
+                if (!this.username || !this.phone || !this.course) {
+                    // alert('必填项不能为空')
+                    this.$message({
+                        message: '必填项不能为空',
+                        type: 'warning',
+                        duration:1000
+                    });
+                    return
+                }
+                obj.username = this.username;
+                obj.course = this.course;
+                obj.sex = this.sex;
+                obj.hoddy = this.hoddy;
+                obj.phone = this.phone;
+                fetch('http://127.0.0.1:8000/add/userinfo', {
+                    method: 'post',
+                    body: JSON.stringify(obj)
+                }).then(response => response.json()).then(data => {
+                    console.log(data)
+                    if (data.code == 0) {
+                        this.$message({
+                            message: '恭喜你，这是一条成功消息',
+                            type: 'success',
+                            duration:1000
+                        });
+                    }
+                })
+            }
+        },
+
+    })
+</script>
