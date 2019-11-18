@@ -8,30 +8,33 @@
 </head>
 <body>
     <div id="app">
-        <input type="text" v-model="name">
         <h1>{{name}}</h1>
-        <h2>{{watchMasg}}</h2>
+        请输入问题 <input type="text">
+
+        <h2>答案是</h2>
     </div>
 </body>
 </html>
 <script src="../node_modules/vue/dist/vue.js"></script>
+<script src="../node_modules/axios/dist/axios.js"></script>
+<script src="../node_modules/lodash/lodash.js"></script>
 <script>
     let vm = new Vue({
         el:'#app',
         data:{
             name:"你好",
-            timer:null,
-            watchMasg:''
+            question:"",
+            answer:""
         },
-        watch:{
-            name(newValue,oldValue){
-                console.log(newValue,oldValue)
-                // this.name = 666
-                clearTimeout(this.timer)
-                this.timer = setTimeout(()=>{
+        methods: {
+            getAnswer() {
+                axios.get('https://yesno.wtf/api').then(data=>{
                     
                 })
             }
+        },
+        watch:{
+
         }
     })
 </script>
