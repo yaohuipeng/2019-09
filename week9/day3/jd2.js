@@ -11,6 +11,19 @@ let vm = new Vue({
         show: false,
         delIndex: null
     },
+    computed: {
+        /* checkAll() {
+            return this.datalist.every(item=>item.isSelect)
+        } */
+        checkAll:{
+            get(){
+                return this.datalist.every(item=>item.isSelect)
+            },
+            set(val){
+                this.datalist.forEach()
+            }
+        }
+    },
     created() {
         // 实例创建完成之后会触发该函数；（钩子函数）
         this.getData();
@@ -50,7 +63,7 @@ let vm = new Vue({
             }).then(data => {
                 console.log(data)
                 if (data.code == 0) {
-                    this.checkAll = this.datalist.every(item => item.isSelect)
+                    // this.checkAll = this.datalist.every(item => item.isSelect)
                     this.sum();
                 }
             })
@@ -59,9 +72,9 @@ let vm = new Vue({
         checkAllFn() {
             // 点击全选触发的事件
             // this.checkAll
-            this.datalist.forEach(item => {
-                item.isSelect = this.checkAll
-            })
+            // this.datalist.forEach(item => {
+            //     item.isSelect = this.checkAll
+            // })
             // 重新计算总价
             this.sum();
         },
