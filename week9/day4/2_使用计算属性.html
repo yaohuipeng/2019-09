@@ -10,16 +10,15 @@
 
 <body>
     <div id="app">
-
         <h1>{{name}}</h1>
 
         全选：<input type="checkbox" v-model='isAll'>
         <ul>
-            <li v-for="(item,index) in ary" :key="item.id">
-                商品{{item.id}}
-                <input type="checkbox" v-model="item.is">
-                <input type="number" v-model="item.count">
-                <button @click="del(item,index)">X</button>
+            <li v-for='(item,index) in ary' :key='item.id'>
+                商品：{{item.id}}
+                <input type="checkbox" v-model='item.is'>
+                <input type="number" v-model='item.count'>
+                <button @click='del(item,index)'>X</button>
             </li>
         </ul>
         <h2>总价：{{total}}</h2>
@@ -32,7 +31,7 @@
     let vm = new Vue({
         el: '#app',
         data: {
-            name: "你好",
+            name: "珠峰",
             ary: [{
                     is: true,
                     count: 10,
@@ -45,38 +44,33 @@
                 },
                 {
                     is: true,
-                    count: 15,
+                    count: 1,
                     id: 3
                 },
                 {
                     is: true,
-                    count: 3,
+                    count: 8,
                     id: 4
                 },
                 {
                     is: true,
-                    count: 20,
+                    count: 2,
                     id: 5
-                },
-                {
-                    is: true,
-                    count: 7,
-                    id: 6
-                },
+                }
             ]
         },
         computed: {
-            // isAll() {
-            //     return this.ary.every(item=>item.is) 
-            // }
+            /* isAll(){
+                return this.ary.every(item=>item.is)
+            } */
             isAll: {
                 get() {
+                    if (this.ary.length == 0) return false;
                     return this.ary.every(item => item.is)
                 },
                 set(val) {
                     this.ary.forEach(item => item.is = val)
-                },
-
+                }
             },
             total() {
                 return this.ary.filter(item => item.is).reduce((prev, next) => prev + next.count * 10, 0)
@@ -87,5 +81,5 @@
                 this.ary.splice(n, 1)
             }
         },
-    })
+    });
 </script>

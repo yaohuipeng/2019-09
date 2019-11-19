@@ -10,12 +10,12 @@
 
 <body>
     <div id="app">
-        <input type="text" v-model="firstName">
-        <input type="text" v-model="middleName">
-        <input type="text" v-model="lastName">
+        <input type="text" v-model='firstName'>
+        <input type="text" v-model='middleName'>
+        <input type="text" v-model='lastName'>
         <h1>{{name}}</h1>
-        <h2>名字是:{{fullName}}</h2>
-        <h2>计算属性 名字是:{{fullName2}}</h2>
+        <h2>名字是{{fullName}}</h2>
+        <h2>计算属性：{{fullName2}}</h2>
     </div>
 </body>
 
@@ -25,11 +25,11 @@
     let vm = new Vue({
         el: '#app',
         data: {
-            name: "你好",
-            firstName: '111',
-            middleName: '222',
-            lastName: '333',
-            fullName: '111·222·333'
+            name: "珠峰",
+            firstName: '珠峰',
+            middleName: '世纪',
+            lastName: '培训',
+            fullName: '珠峰·世纪·培训'
         },
         computed: {
             fullName2() {
@@ -46,6 +46,6 @@
             lastName(newV, oldV) {
                 this.fullName = this.firstName + '·' + this.middleName + '·' + newV
             }
-        }
-    })
+        },
+    });
 </script>
