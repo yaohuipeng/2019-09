@@ -13,6 +13,7 @@
             text-align: center;
             font-size: 30px;
             margin: 5px;
+            background: salmon;
         }
 
         .my-enter-active,
@@ -26,7 +27,8 @@
             transform: translateY(30px);
         }
 
-        .my-move {
+        .my-move,
+        .qqq {
             transition: all 0.5s;
         }
 
@@ -40,7 +42,7 @@
     <div id="app">
         <h1>{{name}}</h1>
         <transition-group tag='div' name='my'>
-            <span v-for='item in ary' :key='item' class="qqq">{{item}}</span>
+            <span v-for='item in ary' :key='item' class='qqq'>{{item}}</span>
         </transition-group>
         <button @click='add'>添加</button>
         <button @click='del'>删除</button>

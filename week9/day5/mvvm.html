@@ -61,6 +61,10 @@
                     // 要把 val 设置成对应元素的值
                     // node就是我们对应的 元素
                     // console.log(node)
+                    node.addEventListener('input', (e) => {
+                        vm.$data[valN] = e.target.value;
+                    }, false);
+                    new Watcher(node, vm, valN)
                     node.value = val; // 把元素的value设置成 对应的 val;
                 }
             });
@@ -151,14 +155,20 @@
         update() {
             this.get(); // this.value 存储的就是 更改后的数据的新值
             let str = this.node.str;
-            str = str.replace(/\{\{(.+?)\}\}/g, ($0, $1) => {
-                if ($1 == this.key) {
-                    return this.value
-                }
-                return this.vm.$data[$1]
-            })
-            // 把更新完成的 str 重新放回页面
-            this.node.textContent = str;
+            if (str) {
+                str = str.replace(/\{\{(.+?)\}\}/g, ($0, $1) => {
+                    if ($1 == this.key) {
+                        return this.value
+                    }
+                    return this.vm.$data[$1]
+                })
+                // 把更新完成的 str 重新放回页面
+                this.node.textContent = str;
+            } else {
+                // 证明是 input
+                this.node.value = this.value;
+            }
+
         }
         get() {
             this.value = this.vm.$data[this.key]
