@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{name}}</h1>
+        <my-btn @click="fn" class="qqq"></my-btn>
+    </div>
+    <template id="btn">
+        <div>
+            <button @click="clickFn">按钮</button>
+        </div>
+    </template>
+</body>
+
+</html>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    let obj = {
+        template: "#btn",
+        methods: {
+            clickFn(e) {
+                this.$emit('click',e)
+            }
+        }
+    }
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            name: "你好"
+        },
+        components: {
+            "my-btn": obj,
+        },
+        methods: {
+            fn() {
+                console.log(arguments)
+            }
+        },
+    })
+</script>

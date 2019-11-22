@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{name}}</h1>
+        <son :data="123456"></son>
+    </div>
+    <template id="son">
+        <div>
+            <h2>父组件传进来的数据是{{typeof data}}</h2>
+        </div>
+    </template>
+</body>
+
+</html>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    let son = {
+        template: "#son",
+        // props:['data']
+        props: {
+            props: {
+                data: {
+                    type: Number, // 传进来数据的类型限制
+                    // default:0, // 不传数据时的默认数据
+                    required: true, // 参数是否必须；
+                    validator: function (val) {
+                        // 自定义参数的规则；
+                        console.log(val)
+                        return val > 18
+                        // return false;
+                    }
+                }
+            }
+        }
+    }
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            name: "你好"
+        },
+        components: {
+            son,
+        },
+    })
+</script>
