@@ -8,7 +8,9 @@
 </head>
 <body>
     <div id="app">
+        <input type="text" v-model='name'>
         <h1 class='qqq'>{{name}}</h1>
+        <button @click='fn'>1234</button>
     </div>
 </body>
 </html>
@@ -26,7 +28,9 @@
             age:'10'
         },
         methods: {
-            fn(){}
+            fn(){
+                console.log(this.name)
+            }
         },
         computed: {
             qqq(){}
@@ -52,10 +56,15 @@
             // console.log(document.querySelector('.qqq'))
         },
         beforeUpdate() {
+            // 在数据更新并触发了视图更新之后， 会触发 更新的 这两个钩子函数
+            console.log(document.querySelector('.qqq'))
             console.log('beforeUpdate')
         },
         updated() {
+            // 在updated这个钩子函数中 我们不能编写触发视图更新的操作
+            console.log(document.querySelector('.qqq'))
             console.log('updated')
+            // this.name = 666;// 触发1次数没关系；
         },
         beforeDestroy() {
             console.log('beforeDestroy')
@@ -64,4 +73,5 @@
             console.log('destroyed')
         },
     });
+    // vm.$destroy();// 切断了数据更新试图的操作  试图更新数据没有切断
 </script>

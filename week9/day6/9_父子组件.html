@@ -26,24 +26,41 @@
         methods: {
             add(){
                 console.log('增加',this)
-                this.$parent.count++
+                // this.$parent.count++
+                this.$emit('qqqfn',100)
             },
             minus(){
                 console.log('减少',this)
-                this.$parent.count--
+                this.$emit('qqqfn',-100)
+                // this.$parent.count--
             }
         },
     }
+    let myh1 = {
+        template:"<h1>{{qqq}}</h1>",
+        props:['qqq'],
+        created() {
+            console.log(this)
+        },
+    }
     let mycount = {
-        template:`<h1>数字是{{count}}  <mybutton/> </h1>`,
+        // 父组件 怎么把数据传递给 子组件 ： 是通过行内属性的方式传递给子组件
+        
+        template:`<div>数字是 <myh1 :qqq='count'></myh1>  <mybutton @qqqfn='fn'/> </div>`,
         data() {
             return {
                 count:0
             }
         },
         components:{
-            mybutton
-        }
+            mybutton,myh1
+        },
+        methods: {
+            fn(n){
+                console.log(n)
+                this.count += n;
+            }
+        },
     }
     
 
