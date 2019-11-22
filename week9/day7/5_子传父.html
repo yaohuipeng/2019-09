@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="../node_modules/element-ui/lib/theme-chalk/index.css">
 </head>
-
 <body>
     <div id="app">
         <h1>{{name}}</h1>
@@ -17,7 +15,6 @@
         <my-button @click='fn2' class='qwer'></my-button>
     </div>
 </body>
-
 </html>
 
 <template id='mycount'>
@@ -41,8 +38,8 @@
             然后再子组件中执行对应的函数，并通过参数的方式 把子组件的数据给父组件
     */
     let mycount = {
-        template: '#mycount',
-        props: ['count'], // props 优先于 data
+        template:'#mycount',
+        props:['count'],// props 优先于 data
         created() {
             console.log(this)
         },
@@ -50,37 +47,37 @@
             add() {
                 // this.$parent.count++
                 // this.$emit('add123',1,2,3,4,5,6,7)
-                this.$listeners.add123(1, 2, 3)
+                this.$listeners.add123(1,2,3)
             },
-            minus() {
+            minus(){
                 // this.$parent.count--
                 // this.$emit('minus123',100,200,300,400)
-                this.qqq(100, 200)
+                this.qqq(100,200)
             }
         },
-        inject: ['qqq']
+        inject:['qqq']
     }
     let vm = new Vue({
-        el: '#app',
-        data: {
-            name: "珠峰",
-            count: 0
+        el:'#app',
+        data:{
+            name:"珠峰",
+            count:0
         },
-        components: {
+        components:{
             mycount
         },
         methods: {
-            fn(n) {
+            fn(n){
                 console.log(arguments)
                 this.count += n
             },
-            fn2() {
+            fn2(){
                 console.log(arguments)
             }
         },
-        provide() {
+        provide(){
             return {
-                qqq: this.fn
+                qqq:this.fn
             }
         }
     });
