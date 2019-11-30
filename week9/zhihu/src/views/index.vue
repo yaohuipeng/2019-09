@@ -1,45 +1,50 @@
 <template>
-  <div class="mainPage">
-    <div>
-      <router-view></router-view>
+    <div class='mainPage'>
+        <div>
+            <router-view></router-view>
+        </div>
+        <nav class='navBox'>
+            <div>
+                <router-link to="/home">
+                    <i class='iconfont icon-11'></i>
+                    <div>首页</div>
+                </router-link>
+            </div>
+            <div>
+                <router-link to="/vip">
+                    <i class='iconfont icon-huiyuan-'></i>
+                    <div>会员</div>
+                </router-link>
+            </div>
+            <div>
+                <i class='iconfont icon-yingyong- add'></i>
+            </div>
+            <div>
+                <router-link to="/notify">
+                    <i class='iconfont icon-tongzhi'></i>
+                    <div>通知</div>
+                </router-link>
+            </div>
+            <div>
+                <router-link to="/user">
+                    <i class='iconfont icon-icon-user'></i>
+                    <div>{{loginState ? "我的" : '未登录'}}</div>
+                </router-link>
+            </div>
+        </nav>
     </div>
-    <nav class="navBox">
-      <div>
-        <router-link to="/home">
-          <i class="iconfont icon-11"></i>
-          <div>首页</div>
-        </router-link>
-      </div>
-      <div>
-        <router-link to="/vip">
-          <i class="iconfont icon-huiyuan-"></i>
-          <div>会员</div>
-        </router-link>
-      </div>
-      <div>
-        <i class="iconfont icon-yingyong- add"></i>
-      </div>
-      <div>
-        <router-link to="/notify">
-          <i class="iconfont icon-tongzhi"></i>
-          <div>通知</div>
-        </router-link>
-      </div>
-      <div>
-        <router-link to="/user">
-          <i class="iconfont icon-icon-user"></i>
-          <div>{{loginState?"我的":"未登录"}}</div>
-        </router-link>
-      </div>
-    </nav>
-  </div>
 </template>
 <script>
-import { mapState } from "vuex";
 // @ is an alias to /src
+import { mapState } from 'vuex';
 export default {
   data() {
     return {};
+  },
+  created() {
+      if(!localStorage.getItem('token')){
+          // this.$router.push('/login')
+      }
   },
   components: {},
   computed: {
@@ -48,9 +53,13 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.mainPage>div:nth-child(1){
+    padding-bottom: 18vw;
+}
 //scoped 当前样式 只对当前模板 起作用
 nav {
   position: fixed;
+  background: #fff;
   bottom: 0;
   left: 0;
   width: 100%;

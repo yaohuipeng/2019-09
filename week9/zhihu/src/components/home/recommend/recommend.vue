@@ -1,12 +1,12 @@
 <template>
     <div>
-        VIP
+        推荐
     </div>
 </template>
 <script>
 // @ is an alias to /src
 export default {
-    name: 'VIP',
+    name: 'XXX',
     data() {
         return {
         
