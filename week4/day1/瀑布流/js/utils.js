@@ -18,7 +18,7 @@ var utils = {
     winH(){
         // 获取当前屏幕的高度
         var h = document.documentElement.clientHeight || document.body.clientHeight;
-        // 获取当前屏幕的高度
+        // 获取当前屏幕的宽度
         var w = document.documentElement.clientWidth || document.body.clientWidth;
         return {
             w,h
