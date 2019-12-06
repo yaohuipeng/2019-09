@@ -7,6 +7,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
+        header {
+            width: 400px;
+            height: 50px;
+            line-height: 50px;
+            display: flex;
+        }
+
+        header span {
+            flex: 1;
+            border: 1px solid salmon;
+            text-align: center;
+        }
+        header span.current{
+            background: salmon;
+        }
+
         main div {
             width: 400px;
             height: 200px;
@@ -22,12 +38,32 @@
     <div id="app">
         <h1>{{name}}</h1>
         <header>
-            <button v-for='(item,index) in ary' @click='change(index)'>{{item}}</button>
+            <span v-for='(item,index) in ary' @click='change(index)' :class='{current:qqq==index}'>
+                {{item}}
+            </span>
         </header>
         <main>
-            <div v-for='(item,index) in body' v-show="index===qqq">
-                {{item}}
+            <div>
+                {{body[qqq]}}
             </div>
+            <!-- <div v-for='(item,index) in body' v-show='index === qqq'>
+                {{item}}
+            </div> -->
+            <!-- 
+
+                <div v-show='0 === qqq'>
+                    {{item}}
+                </div>
+                <div v-show='1 === qqq'>
+                    {{item}}
+                </div>
+                <div v-show='2 === qqq'>
+                    {{item}}
+                </div>
+                <div v-show='3 === qqq'>
+                    {{item}}
+                </div>
+             -->
         </main>
     </div>
 </body>
@@ -40,15 +76,14 @@
         data: {
             name: "珠峰",
             ary: ['js', 'css', 'html', 'vue'],
-            body: ['js', 'css', 'htnl', 'vue'],
+            body: ["JS学的好", "css学的好", "html好", "vue更好"],
             qqq: 0,
         },
         methods: {
             change(n) {
-                this.qqq = n
-                this.show = !this.show
-                console.log(n)
+                console.log(n);
+                this.qqq = n;
             }
         },
-    })
+    });
 </script>

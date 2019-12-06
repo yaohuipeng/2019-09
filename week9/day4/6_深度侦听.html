@@ -1,42 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-
 <body>
     <div id="app">
         <input type="text" v-model='obj.a'>
         <h1>{{name}}</h1>
     </div>
 </body>
-
 </html>
 <script src="../node_modules/vue/dist/vue.js"></script>
 <script>
     let vm = new Vue({
-        el: '#app',
-        data: {
-            name: "珠峰",
-            obj: {
-                a: 12
+        el:'#app',
+        data:{
+            name:"珠峰",
+            obj:{
+                a:12
             }
         },
         computed: {
-            qqq() {
+            qqq(){
 
             }
         },
         methods: {
-            fn() {
+            fn(){
 
             },
-            www(newV, oldV) {
-                console.log(newV, oldV)
+            www(newV,oldV){
+                console.log(newV,oldV)
             }
         },
         watch: {
@@ -44,7 +41,7 @@
                 console.log(newV,oldV)
                 console.log(this)
             } */
-            obj: 'www'
+            obj:'www'
             /* obj:{
                 deep:true,// 深度
                 immediate:true,// 上来先执行一次
