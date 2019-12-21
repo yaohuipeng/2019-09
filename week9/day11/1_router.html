@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <div id="app">
         <h1>{{name}}</h1>
@@ -14,6 +16,7 @@
         <router-link :to="{name:'list',query:obj}">列表页</router-link>
     </div>
 </body>
+
 </html>
 <script src="../node_modules/vue/dist/vue.js"></script>
 <script src="../node_modules/vue-router/dist/vue-router.js"></script>
@@ -26,28 +29,27 @@
         $router  $route
     */
     let home = {
-        template:"<h2>首页</h2>",
+        template: "<h2>首页</h2>",
         created() {
             console.log(this.$route.query)
         },
     }
     let list = {
-        template:"<h2>列表页</h2>",
+        template: "<h2>列表页</h2>",
         created() {
             console.log(this)
         },
     }
 
-    const routes = [
-        {
-            path:'/home',
-            name:'home',
-            component:home
+    const routes = [{
+            path: '/home',
+            name: 'home',
+            component: home
         },
         {
-            path:'/list',
-            name:'list',
-            component:list
+            path: '/list',
+            name: 'list',
+            component: list
         }
     ]
     let router = new VueRouter({
@@ -55,14 +57,14 @@
     })
 
     let vm = new Vue({
-        el:'#app',
+        el: '#app',
         router,
-        data:{
-            name:"珠峰",
-            obj:{
-                a:12,
-                b:23,
-                c:34
+        data: {
+            name: "珠峰",
+            obj: {
+                a: 12,
+                b: 23,
+                c: 34
             }
         }
     });
