@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import './1.scss'
-
+import './1.less'
+// jsx
 function App() {
   return (
     <div className="App">
@@ -17,7 +17,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          QQQQQQQQQQQQQQQQQQQQQQQQQ
+          QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
         </a>
       </header>
     </div>
