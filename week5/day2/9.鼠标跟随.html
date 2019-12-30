@@ -81,20 +81,20 @@
         // bigImgs.style.display = 'block';
         litImgBoxs.onmousemove = function (e) {
             // console.log(e.pageX, e.pageY)
-            if(e.pageX>=litImgBoxs.style.left-50){
-                box.style.left=litImgBoxs.style.left-50
+            if (e.pageX >= litImgBoxs.style.left - 50) {
+                box.style.left = litImgBoxs.style.left - 50
             }
             box.style.left = e.pageX - 50 + 'px'
             box.style.top = e.pageY - 50 + 'px'
 
         }
-    //     litImgBoxs.onmousemove = function (e) {
-    //     // console.log(e.pageX, e.pageY)
-    //     bigImgs.style.left = -e.pageX - 50 + 'px'
-    //     bigImgs.style.top = -e.pageY - 50 + 'px'
-    // }
+        //     litImgBoxs.onmousemove = function (e) {
+        //     // console.log(e.pageX, e.pageY)
+        //     bigImgs.style.left = -e.pageX - 50 + 'px'
+        //     bigImgs.style.top = -e.pageY - 50 + 'px'
+        // }
     }
-    
+
     litImgs.onmouseleave = function () {
         bigImgBoxs.style.display = 'none';
         // bigImgs.style.display = 'none';

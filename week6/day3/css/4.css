@@ -10,7 +10,7 @@ body {
   font-size: 16px;
 }
 body {
-  background: url('../交互简历/images/cube-bg.jpg');
+  background: url(../交互简历/images/cube-bg.jpg);
   background-size: cover;
 }
 body #box {
@@ -18,13 +18,13 @@ body #box {
   height: 5rem;
   perspective: 26.66666667rem;
   position: absolute;
-  top: 7rem;
-  left: 2.5rem;
+  top: 6rem;
+  left: 3rem;
 }
 body #box ul {
   position: relative;
   transform-style: preserve-3d;
-  transform-origin: 2.5rem 2.5rem 2.5rem;
+  transform-origin: 2.5rem 2.5rem -2.5rem;
   width: 5rem;
   height: 5rem;
 }
@@ -38,23 +38,23 @@ body #box ul li img {
   height: 5rem;
 }
 body #box ul li:nth-child(2) {
-  transform: rotateX(-90deg);
+  transform: rotateX(90deg) rotateY(180deg);
   transform-origin: bottom;
 }
 body #box ul li:nth-child(3) {
-  transform: rotateY(90deg);
-  transform-origin: right;
+  transform: rotateX(-90deg) rotateY(180deg);
+  transform-origin: top;
 }
 body #box ul li:nth-child(4) {
-  transform: rotateY(-90deg);
+  transform: rotateY(90deg);
   transform-origin: left;
 }
 body #box ul li:nth-child(5) {
-  transform: rotateX(90deg);
-  transform-origin: top;
+  transform: rotateY(-90deg) rotateX(180deg);
+  transform-origin: right;
 }
 body #box ul li:nth-child(6) {
-  transform: translateZ(5rem);
+  transform: translateZ(-5rem) rotateY(180deg);
 }
 @keyframes move {
   0% {

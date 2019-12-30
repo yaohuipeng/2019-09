@@ -1,79 +1,84 @@
-* {
+*{
     margin: 0;
     padding: 0;
+    list-style: none;
 }
-
-.box {
-    margin: auto;
+.md{
     width: 1200px;
+    margin: auto;
 }
-.box header{
-    border: 1px solid #ccc;
-    height: 50px;
-    padding-left: 100px;
-    overflow: hidden;
-}
-.box header div{
-    float: left;
-    margin: auto 10px;
-    color: #333;
+.md header{
+    border:1px solid #ccc;
     height: 50px;
     line-height: 50px;
-    font-size: 12px;
+}
+.md header span{
+    padding: 0 20px;
     cursor: pointer;
+    user-select: none;
 }
-main{
+img{
+    height: 100%;
+}
+/* 三角型 */
+.md header span:first-child{
+    cursor: default
+}
+#box{
     overflow: hidden;
-    margin-top: 25px;
+    margin-top: 15px;
 }
-main .good_box{
+#box li{
+    position: relative;
     float: left;
     width: 220px;
+    height: 340px;
+    margin-right: 25px;
+    margin-bottom: 25px;
     box-sizing: border-box;
     border: 1px solid #ccc;
-    margin-right: 25px;
-    height: 360px;
-    margin-bottom: 25px;
-    position: relative;
 }
-main .good_box:nth-child(5n){
+#box li:nth-child(5n){
     margin-right: 0;
 }
-main .good_box:hover{
-    border-color: red
+#box li:hover{
+    border-color: red;
 }
-main .good_box .img_box{
+#box li .imgBox{
     height: 180px;
     width: 180px;
-    padding: 38px 0 24px;
-    margin: auto;
+    /* margin: auto; */
+    margin: 20px auto 10px;
 }
-main .good_box .img_box img{
-    width: 100%;
-}
-main .good_box .desc{
+#box li .til{
+    color: rgb(51, 49, 49);
     text-align: center;
-    font-size: 12px;
+    font-size: 14px;
 }
-main .good_box .price{
+#box li .desc{
     text-align: center;
+    font-size: 15px;
+    margin: 10px;
+}
+#box li .price{
+    text-align: center;
+    font-size: 15px;
     color: red;
-    margin-top: 19px;
 }
-main .good_box .bot_box{
-    display: flex;
+#box li .botBox{
     position: absolute;
     bottom: 0;
-    height: 35px;
+    left: 0;
     width: 100%;
-    font-size: 12px;
+    display: flex;
 }
-main .good_box .bot_box div{
+#box li .botBox div{
     flex: 1;
-    text-align: center;
-    border-top: 1px solid #ccc;
+    border-top:1px solid #ccc;
+    height: 35px;
     line-height: 35px;
+    text-align: center;
 }
-main .good_box .bot_box div:nth-child(1){
-    border-right:1px solid #ccc 
+#box li .botBox div:first-child{
+    border-right: 1px solid #ccc;
 }

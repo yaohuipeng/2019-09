@@ -27,6 +27,7 @@ route.post('/login', (req, res) => {
 
 	if (item) {
 		req.session.userID = parseFloat(item.id);
+		console.log(req.session.userID)
 		req.session.power = getJobInfo(item.jobId, req).power || '';
 		res.send(success(true, {
 			power: req.session.power
@@ -41,6 +42,7 @@ route.post('/login', (req, res) => {
 //=>检测是否登录
 route.get('/login', (req, res) => {
 	const userID = req.session.userID;
+	console.log('userID',req.session)
 	if (userID) {
 		res.send(success(true));
 		return;
@@ -185,7 +187,7 @@ route.post('/update', (req, res) => {
 });
 
 //=>删除用户信息
-route.get('/delete', (req, res) => {
+function del(req, res) {
 	let $userDATA = req.$userDATA,
 		flag = false;
 	let {
@@ -210,6 +212,10 @@ route.get('/delete', (req, res) => {
 	}).catch(() => {
 		res.send(success(false));
 	});
+}
+let ary = []
+route.get('/delete', (req, res) => {
+	del(req, res)
 });
 
 //=>修改（重置）用户密码

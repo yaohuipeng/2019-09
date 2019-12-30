@@ -1,11 +1,15 @@
 * {
   margin: 0;
   padding: 0;
-  list-style: none;
 }
 #box {
-  width: 1.33333333rem;
+  width: 4.66666667rem;
   height: 1.33333333rem;
+  background: red;
+}
+#box {
+  width: 350px;
+  height: 100px;
   background: red;
 }
 @media all and (max-width: 750px) {

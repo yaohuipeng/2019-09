@@ -1,20 +1,22 @@
 let ul = document.querySelector('#box .img_box ul'),
     box = document.querySelector('#box'),
-    tipBox = document.querySelector('#box .tip_box'),
-    tips = document.getElementById('box').getElementsByClassName('tip'),
-    leftBtn = document.querySelector('#box .left_btn'),
-    rigthBtn = document.querySelector('#box .rigth_btn')
+    tipBox = document.querySelector('#box .tip_box');
+let tips = document.getElementById('box').getElementsByClassName('tip');  
+
+let leftBtn = document.querySelector('#box .left_btn'),
+    rightBtn = document.querySelector('#box .right_btn');
+
 // 获取数据 
-function getData() {
+function getData(){
     var xhr = new XMLHttpRequest();
-    xhr.open('get', './data.json', true);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && /200|304/.test(xhr.status)) {
+    xhr.open('get','./data.json',true);
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4 && /200|304/.test(xhr.status)){
             let data = JSON.parse(xhr.response);
             console.log(data);
             render(data);
-            move()
-            tipClick()
+            move();// 数据渲染完成之后再去开启动画；
+            tipClick();
         }
     }
     xhr.send();
@@ -22,113 +24,130 @@ function getData() {
 getData();
 
 // 渲染数据
-function render(data) {
+function render(data){
     data = data || [];
     let str = '';
-    let tipstr = ''
-    data.push(data[0])
-    data.forEach((item, index) => {
-        let { img, desc } = item;
+    let tipStr = '';
+    data.push(data[0]);// 在数组的末尾添加了 第一项 ；是为了在最后补一张一样的图；
+    data.forEach((item,index)=>{
+        let {img,desc} = item;
         str += `<li>
                 <img src="${img}" alt="">
                 <p class="desc">${desc}</p>
-            </li>`
-        if (index !== data.length - 1) {
-            if (index == 0) {
-                tipstr += `<span class="tip current"></span>\n`
-            } else {
-                tipstr += `<span class="tip"></span>\n`
+            </li>`;
+        if(index !== data.length-1){
+            //渲染 小点；
+            if(index==0){
+                // 只有地一样 才默认有 current类名
+                tipStr += `<span class="tip current"></span>\n`
+            }else{
+                tipStr += `<span class="tip"></span>\n`
             }
-        }
+        }     
     })
-    tipBox.innerHTML = tipstr
+    tipBox.innerHTML = tipStr;
     ul.innerHTML = str;
-    ul.style.width = data.length * 590 + 'px'
+    ul.style.width = data.length*590 + 'px';//更新盒子的宽度
 }
 
-let n = 0
-let timer = null
-function move() {
-    timer = setInterval(() => {
-        change()
-    }, 1000)
-}
+let n = 0;
+let timer = null;
 
-function change() {
-    n++
-    if (n == tips.length + 1) {
-        ul.style.transition = 'left 0s ease-in'
-        ul.style.left = 0
-        n = 1
+function move(){
+    timer = setInterval(()=>{
+        change();
+    },2000);
+}
+function change(){
+    n++;// n = 4 的时候显示的是 伪 第一张；
+    if(n==(tips.length+1)){
+        ul.style.transition = 'none';
+        ul.style.left = 0;// 让图片直接闪到第一张； 紧接着要向第二张图移动；
+        n=1
     }
     tipClass(n)
-    // animate(ul, { 'left': -590 * n }, 500, function () { })
+    // animate(ul,{left:-590*n},500,function(){console.log(666)});
     setTimeout(() => {
-        ul.style.transition = 'left 0.5s ease-in'
-        ul.style.left = -590 * n + 'px'
-    }, 10)
-
+        // 同步情况下， 代码从上到下执行的时候， 只会让下边的代码起作用；上边代码会被覆盖，
+        // 异步情况下， 异步代码会被忽略掉，同步先执行，完事之后异步再去执行；
+        ul.style.transition = 'left 0.5s ease-in';
+        ul.style.left = -590*n + 'px';
+    }, 10);
+    
 }
 
-box.onmouseenter = function () {
-    clearInterval(timer)
+
+
+// 划入盒子时 清除动画；
+box.onmouseenter = function(){
+    clearInterval(timer);
 }
-box.onmouseleave = function () {
-    move()
+// 划出盒子时  重启动画
+box.onmouseleave = function(){
+    move();
 }
-function tipClass(m) {
-    m = m >= tips.length ? 0 : m
-    for (let i = 0; i < tips.length; i++) {
+
+// 处理 tip 类名的函数
+function tipClass(m){
+    m = m >= tips.length ? 0 : m;// 当n指向了伪第一张的时候， 我们要让第一个高亮
+    for(let i = 0; i < tips.length; i++){
         tips[i].className = 'tip'
     }
-    tips[m].className = 'tip current'
+    tips[m].className = 'tip current';
 }
 
-// rigthBtn.onclick = function () {
-//     change()
-
+// 点击左右按钮执行的操作
+// rightBtn.onclick = function(){
+//    change()
 // }
-rigthBtn.onclick = dabounce(function () {
+rightBtn.onclick = debounce(function(){
     change()
-
-}) 
-leftBtn.onclick = function () {
-    n--
-    if (n < 0) {
-        ul.style.transition = 'none'
-        ul.style.left = -590 * (tips.length) + 'px'
-        n = tips.length - 1
+})
+leftBtn.onclick = function(){
+    n--;
+    // n == -1的 我们要做什么操作？？
+    if(n<0){
+        ul.style.transition = 'none';// 闪到最后一张； 需要清除过渡动效
+        ul.style.left = -590*(tips.length)+'px';
+        n = tips.length-1;
     }
-    tipClass(n)
-    // animate(ul, { 'left': -590 * n }, 500)
+    tipClass(n);
+    // animate(ul,{left:-590*n},500,function(){console.log(666)})
     setTimeout(() => {
-        ul.style.transition = 'left 0.5s ease-in'
-        ul.style.left = -590 * n + 'px'
-    }, 10)
+        ul.style.transition = 'left 0.5s ease-in';
+        ul.style.left = -590*n + 'px';
+    }, 10);
 }
-function tipClick() {
-    for (let i = 0; i < tips.length; i++) {
-        tips[i].onclick = function () {
-            n = i
-            tipClass(n)
-            // animate(ul, { 'left': -590 * n }, 500)
-            ul.style.transition = 'left 0.5s ease-in'
-            ul.style.left = -590 * n + 'px'
+
+function tipClick(){
+    for(let i = 0; i < tips.length; i++){
+        tips[i].onclick = function(){
+            n = i;
+            tipClass(n);
+            // animate(ul,{left:-590*n},500,function(){console.log(666)})
+            ul.style.transition = 'left 0.5s ease-in';
+            ul.style.left = -590*n + 'px';
         }
     }
 }
 
-function dabounce(fn,wait=500){
-    var timer = null
+
+function debounce(fn,wait=500){
+    var timer = null;
     return function(){
-        if(timer==null){
-            fn.apply(this,arguments)
-            timer=0
-            return
+        if(timer == null){
+            fn.apply(this,arguments);
+            timer = 0;
+            return;
         }
-        clearInterval(timer)
-        timer = setTimeout(()=>{
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            // fn(...arguments);
             fn.apply(this,arguments)
-        },wait)
+        }, wait);
     }
 }
+
+
+
+new Bnnear('#box')

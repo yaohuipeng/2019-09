@@ -18,15 +18,17 @@
 <script src="../js/axios.min.js"></script>
 <script src="../js/axios.defaults.js"></script>
 <script>
-    let id = location.href.queryURLParams().id
+    let id = location.href.queryURLParams().id;
     $('#btn').on('click',function(){
+        debugger
+        console.log(md5($('input').val()))
         axios.post('/user/resetpassword',{
             userId:id,
-            password:md5($('input').val())
+            password: $('input').val()
         }).then((data)=>{
             if(data.code==0){
                 location.href = './userlist.html'
             }
         })
-    })
+    });
 </script>

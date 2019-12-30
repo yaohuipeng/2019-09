@@ -18,7 +18,7 @@ var utils = {
     winH(){
         // 获取当前屏幕的高度
         var h = document.documentElement.clientHeight || document.body.clientHeight;
-        // 获取当前屏幕的宽度
+        // 获取当前屏幕的高度
         var w = document.documentElement.clientWidth || document.body.clientWidth;
         return {
             w,h
@@ -38,17 +38,5 @@ var utils = {
             l,
             t
         }
-    },
-    fadeIn(ele){
-        ele.style.opacity = 0;
-        let n = 0;
-        ele.timer = setInterval(()=>{
-            n += 0.05;
-            if(n >= 1){
-                n = 1;
-                clearInterval(ele.timer)
-            }
-            ele.style.opacity = n;
-        },10)
     }
 }
