@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./node_modules/element-ui/lib/theme-chalk/index.css"> -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{name}}</h1>
+        <el-rate v-model="value" :icon-classes="iconClasses" void-icon-class="icon-rate-face-off"
+            :colors="['#99A9BF', '#F7BA2A', '#FF9900']">
+        </el-rate>
+    </div>
+</body>
+
+</html>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<!-- <script src="./node_modules/element-ui/lib/index.js"></script> -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            name: '你好',
+            value: null,
+            iconClasses: ['icon-rate-face-1', 'icon-rate-face-2',
+                'icon-rate-face-3'
+            ]
+
+        }
+    });
+</script>
