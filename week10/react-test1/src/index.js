@@ -21,7 +21,12 @@ import 'antd/dist/antd.css'
 // import './day4/2_ref'
 // import './day4/3_propTypes'
 // import './day4/4_表单'
-import './day4/5_todo'
+// import './day4/5_todo'
+// import './day5/1_should'
+// import './day5/2_高阶组件'
+// import './day5/4_redux'
+
+import './day5/redux使用/count'
 
 
 
